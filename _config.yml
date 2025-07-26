@@ -1,0 +1,17 @@
+title: "Sakib Anwar"
+description: "Personal academic website"
+url: "https://sakibanwar.github.io"   # user site URL
+baseurl: ""                            # empty for user sites
+theme: minima
+
+# Show these pages in Minima's header navigation
+header_pages:
+  - index.md
+  - research.md
+  - teaching.md
+  - cv.md
+  - talks.md
+
+markdown: kramdown
+kramdown:
+  input: GFM
