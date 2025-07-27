@@ -5,14 +5,11 @@ permalink: /
 ---
 
 <div class="home-left" markdown="1">
-
 ![My photo](/assets/images/profile.jpg){: .profile }
-
 [Curriculum Vitae](/cv/){: .btn-wide }
-
 [![LinkedIn](/assets/icons/linkedin-icon.svg)](https://www.linkedin.com/in/chowdhurymohammad/){: .social-icon }
-[![GitHub](/assets/icons/github-icon.svg)]([https://github.com/your-username](https://github.com/sakibanwar)){: .social-icon }
-[![Google Scholar](/assets/icons/google-scholar-icon.svg)](https://scholar.google.co.uk/citations?user=p0SY6_IAAAAJ&hl=en){: .social-icon }
+[![GitHub](/assets/icons/github-icon.svg)](https://github.com/sakibanwar){: .social-icon }
+[![Google Scholar](/assets/icons/google-scholar-icon.svg)](https://scholar.google.co.uk/citations?user=p0SY6_IAAAAJ&hl=en){: .social-icon }
 </div>
 
 # Sakib Anwar
