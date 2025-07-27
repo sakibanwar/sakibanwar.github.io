@@ -4,7 +4,8 @@ title: "Home"
 permalink: /
 ---
 
-<div class="home-left">
+<div class="home-left" markdown="1">
+
 ![My photo](/assets/images/profile.jpg){: .profile }
 
 [Curriculum Vitae](/cv/){: .btn-wide }
