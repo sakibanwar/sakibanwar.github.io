@@ -9,8 +9,8 @@ permalink: /
 
 [Curriculum Vitae](/cv/){: .btn-wide }
 
-[![LinkedIn](/assets/icons/linkedin.svg "LinkedIn")](https://www.linkedin.com/in/chowdhurymohammad/){: .social-icon }
-[![GitHub](/assets/icons/github.svg "GitHub")]([https://github.com/your-username](https://github.com/sakibanwar)){: .social-icon }
+[![LinkedIn](/assets/icons/linkedin-icon.svg)](https://www.linkedin.com/in/chowdhurymohammad/){: .social-icon }
+[![GitHub](/assets/icons/github-icon.svg "GitHub")]([https://github.com/your-username](https://github.com/sakibanwar)){: .social-icon }
 [![Google Scholar](/assets/icons/google-scholar.svg "Google Scholar")](https://scholar.google.co.uk/citations?user=p0SY6_IAAAAJ&hl=en){: .social-icon }
 </div>
 
