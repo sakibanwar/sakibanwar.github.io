@@ -9,9 +9,9 @@ permalink: /
 
 [Curriculum Vitae](/cv/){: .btn-wide }
 
-[![LinkedIn](/assets/icons/linkedin.svg "LinkedIn")](https://www.linkedin.com/in/your-profile){: .social-icon }
-[![GitHub](/assets/icons/github.svg "GitHub")](https://github.com/your-username){: .social-icon }
-[![Google Scholar](/assets/icons/google-scholar.svg "Google Scholar")](https://scholar.google.com/citations?user=…){: .social-icon }
+[![LinkedIn](/assets/icons/linkedin.svg "LinkedIn")](https://www.linkedin.com/in/chowdhurymohammad/){: .social-icon }
+[![GitHub](/assets/icons/github.svg "GitHub")]([https://github.com/your-username](https://github.com/sakibanwar)){: .social-icon }
+[![Google Scholar](/assets/icons/google-scholar.svg "Google Scholar")](https://scholar.google.co.uk/citations?user=p0SY6_IAAAAJ&hl=en){: .social-icon }
 </div>
 
 # Sakib Anwar
