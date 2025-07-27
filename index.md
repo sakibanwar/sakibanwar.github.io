@@ -11,7 +11,7 @@ permalink: /
 
 [![LinkedIn](/assets/icons/linkedin-icon.svg)](https://www.linkedin.com/in/chowdhurymohammad/){: .social-icon }
 [![GitHub](/assets/icons/github-icon.svg)]([https://github.com/your-username](https://github.com/sakibanwar)){: .social-icon }
-[![Google Scholar](/assets/icons/google-scholar.svg)](https://scholar.google.co.uk/citations?user=p0SY6_IAAAAJ&hl=en){: .social-icon }
+[![Google Scholar](/assets/icons/google-scholar-icon.svg)](https://scholar.google.co.uk/citations?user=p0SY6_IAAAAJ&hl=en){: .social-icon }
 </div>
 
 # Sakib Anwar
