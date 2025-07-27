@@ -1,10 +1,22 @@
+# Site settings
 title: "Sakib Anwar"
-description: "Personal academic website"
-url: "https://sakibanwar.github.io"   # user site URL
-baseurl: ""                            # empty for user sites
-theme: minima
+description: "Personal academic website - Experimental Economics, Game Theory, Public Economics"
+url: "https://sakibanwar.github.io"
+baseurl: ""
 
-# Show these pages in Minima's header navigation
+# Personal info
+email: "sakib.anwar@winchester.ac.uk"
+linkedin_username: "chowdhurymohammad"
+github_username: "sakibanwar"
+scholar_userid: "p0SY6_IAAAAJ"
+orcid_id: "" # Add if you have one
+
+# Site author
+author:
+  name: "Chowdhury Mohammad Sakib Anwar"
+  email: "sakib.anwar@winchester.ac.uk"
+  
+# Navigation pages
 header_pages:
   - index.md
   - research.md
@@ -12,6 +24,34 @@ header_pages:
   - cv.md
   - talks.md
 
+# Build settings
 markdown: kramdown
 kramdown:
   input: GFM
+  syntax_highlighter: rouge
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Collections for news/announcements (optional)
+collections:
+  news:
+    defaults:
+      layout: post
+    output: false
+    permalink: /news/:year/:title/
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor/
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - node_modules/
+  - "*.gemspec"
