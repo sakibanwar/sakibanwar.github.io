@@ -1,14 +1,45 @@
-.home-left {
-  float: left;
-  width: 30%;
-  text-align: center;
-  margin-right: 2rem;
+.home-container {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
 }
+
+.home-left {
+  flex: 0 0 30%;
+  text-align: center;
+}
+
+.home-right {
+  flex: 1;
+}
+
+/* Fallback for older browsers using floats */
+@supports not (display: flex) {
+  .home-container {
+    display: block;
+  }
+  
+  .home-left {
+    float: left;
+    width: 30%;
+    margin-right: 2rem;
+  }
+  
+  .home-right {
+    margin-left: calc(30% + 2rem);
+  }
+  
+  .clearfix {
+    clear: both;
+  }
+}
+
 .profile {
   max-width: 100%;
   border-radius: 4px;
   margin-bottom: 1rem;
 }
+
 .btn-wide {
   display: block;
   padding: 0.75rem 1rem;
@@ -19,11 +50,27 @@
   text-decoration: none;
   font-weight: 600;
 }
+
 .btn-wide:hover {
   background: darken($brand-color, 10%);
+  color: #fff;
+  text-decoration: none;
 }
+
 .social-icon img {
   width: 32px;
   height: 32px;
   margin: 0.25rem;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  .home-container {
+    flex-direction: column;
+  }
+  
+  .home-left {
+    flex: none;
+    margin-bottom: 2rem;
+  }
 }
