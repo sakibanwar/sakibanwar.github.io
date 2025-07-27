@@ -1,0 +1,39 @@
+---
+---
+@import "minima";
+
+$brand-color: #7d1349;
+
+.home-left {
+  float: left;
+  width: 30%;
+  text-align: center;
+  margin-right: 2rem;
+}
+
+.profile {
+  max-width: 100%;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.btn-wide {
+  display: block;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  background: $brand-color;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-wide:hover {
+  background: darken($brand-color, 10%);
+}
+
+.social-icon img {
+  width: 32px;
+  height: 32px;
+  margin: 0.25rem;
+}
