@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>{% if page.title %}{{ page.title | escape }} | {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="{{ '/assets/images/favicon.ico' | relative_url }}" type="image/x-icon">
+</head>
+
+<body>
+  <div class="site-wrapper">
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container">
+        <nav class="navbar">
+          <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
+          
+          <div class="nav-links">
+            {% for path in site.header_pages %}
+              {% assign my_page = site.pages | where: "path", path | first %}
+              {% if my_page.title %}
+                <a class="nav-link {% if page.url == my_page.url %}active{% endif %}" href="{{ my_page.url | relative_url }}">{{ my_page.title }}</a>
+              {% endif %}
+            {% endfor %}
+            
+            <!-- Search icon like in the images -->
+            <a class="nav-link search-icon" href="#" title="Search">
+              <i class="fas fa-search"></i>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="page-content">
+      {{ content }}
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
+          <p class="footer-description">{{ site.description }}</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

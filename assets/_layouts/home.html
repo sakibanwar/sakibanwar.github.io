@@ -1,0 +1,150 @@
+---
+layout: default
+---
+
+<div class="homepage">
+  <!-- Hero Section - Burgundy background with photo and bio -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-container">
+        <!-- Left: Profile Photo -->
+        <div class="hero-image">
+          {% if page.profile and page.profile.image %}
+            <img src="{{ page.profile.image | prepend: '/assets/images/' | relative_url }}" 
+                 alt="{{ site.title }}" 
+                 class="profile-img">
+          {% endif %}
+          
+          <!-- CV Button -->
+          {% if page.profile.cv_link %}
+            <div class="hero-actions">
+              <a href="{{ page.profile.cv_link }}" class="btn btn-primary">
+                <i class="fas fa-file-pdf"></i> CV
+              </a>
+            </div>
+          {% endif %}
+          
+          <!-- Social Links -->
+          {% if page.social %}
+            <div class="social-links">
+              {% if site.linkedin_username %}
+                <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" title="LinkedIn">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+              {% endif %}
+              {% if site.github_username %}
+                <a href="https://github.com/{{ site.github_username }}" title="GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
+              {% endif %}
+              {% if site.scholar_userid %}
+                <a href="https://scholar.google.com/citations?user={{ site.scholar_userid }}" title="Google Scholar">
+                  <i class="fas fa-graduation-cap"></i>
+                </a>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+        
+        <!-- Right: Bio Content -->
+        <div class="hero-content">
+          <h1>{{ site.title }}</h1>
+          
+          <div class="bio-content">
+            {{ content }}
+          </div>
+          
+          {% if page.research_interests %}
+            <div class="research-interests">
+              <strong>Research Interests:</strong> {{ page.research_interests }}
+            </div>
+          {% endif %}
+          
+          {% if page.university_profile %}
+            <p style="margin-top: 1.5rem;">
+              <a href="{{ page.university_profile }}" style="color: rgba(255,255,255,0.9); text-decoration: underline;">
+                View University Profile
+              </a>
+            </p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Contact Information Section -->
+  {% if page.show_contact %}
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-container">
+          <!-- Contact Info -->
+          <div class="contact-info">
+            <h3><i class="fas fa-map-marker-alt"></i> Contact Info</h3>
+            
+            {% if page.contact.office %}
+              <div class="contact-item">
+                <i class="fas fa-building"></i>
+                <div>{{ page.contact.office }}</div>
+              </div>
+            {% endif %}
+            
+            {% if page.contact.department %}
+              <div class="contact-item">
+                <i class="fas fa-university"></i>
+                <div>{{ page.contact.department }}</div>
+              </div>
+            {% endif %}
+            
+            {% if page.contact.university %}
+              <div class="contact-item">
+                <i class="fas fa-graduation-cap"></i>
+                <div>{{ page.contact.university }}</div>
+              </div>
+            {% endif %}
+            
+            {% if page.contact.address %}
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>{{ page.contact.address }}</div>
+              </div>
+            {% endif %}
+            
+            {% if page.contact.phone %}
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <div>{{ page.contact.phone }}</div>
+              </div>
+            {% endif %}
+            
+            {% if site.email %}
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                  <a href="mailto:{{ site.email }}" style="color: #2c5aa0;">{{ site.email }}</a>
+                </div>
+              </div>
+            {% endif %}
+          </div>
+          
+          <!-- Map -->
+          {% if page.contact.map_embed %}
+            <div class="map-container">
+              {{ page.contact.map_embed }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+  
+  <!-- University Logo Section -->
+  {% if page.university_logo %}
+    <section class="university-section">
+      <div class="container">
+        <img src="{{ page.university_logo | prepend: '/assets/images/' | relative_url }}" 
+             alt="University Logo" 
+             class="university-logo">
+      </div>
+    </section>
+  {% endif %}
+</div>

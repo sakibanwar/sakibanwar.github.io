@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+<!-- Burgundy Header Section -->
+{% if page.title %}
+  <section class="page-header-section">
+    <div class="container">
+      <h1 class="page-title">{{ page.title | escape }}</h1>
+      {% if page.subtitle %}
+        <p class="page-subtitle">{{ page.subtitle }}</p>
+      {% endif %}
+    </div>
+  </section>
+{% endif %}
+
+<!-- Main Content -->
+<main class="content-section">
+  <div class="container">
+    <div class="content-wrapper">
+      {{ content }}
+    </div>
+  </div>
+</main>
