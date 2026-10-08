@@ -1,0 +1,87 @@
+# Talks are grouped by year on the page. Put the newest first.
+# "paper" and "note" are optional (note is for things like Poster or Online).
+talks:
+  - year: 2023
+    event: Newcastle Experimental Economics Workshop
+    location: ""
+    month: November
+    paper: ""
+    note: ""
+  - year: 2023
+    event: European ESA Meeting
+    location: Exeter, UK
+    month: September
+    paper: ""
+    note: ""
+  - year: 2022
+    event: 17th European Meeting on Game Theory (SING17)
+    location: ""
+    month: July
+    paper: ""
+    note: Online
+  - year: 2019
+    event: Lancaster Game Theory Conference
+    location: Lancaster University
+    month: November
+    paper: ""
+    note: Poster
+  - year: 2019
+    event: NWSSDTP Conference
+    location: Lancaster University
+    month: ""
+    paper: ""
+    note: ""
+  - year: 2019
+    event: 6th Shadow Economy Conference
+    location: Trento
+    month: July
+    paper: Tax Evasion and Economic Inequality
+    note: ""
+  - year: 2018
+    event: The Lisbon Meetings in Game Theory and Applications
+    location: Portugal
+    month: October
+    paper: ""
+    note: ""
+  - year: 2018
+    event: 1st Lancaster PhD Summer School on Applied Microeconomics (Political Economy)
+    location: ""
+    month: September
+    paper: ""
+    note: Poster
+  - year: 2018
+    event: 9th York Symposium on Game Theory
+    location: University of York
+    month: June
+    paper: ""
+    note: ""
+  - year: 2018
+    event: School of Mathematical Sciences
+    location: University of Southampton
+    month: February
+    paper: ""
+    note: ""
+  - year: 2018
+    event: Economics PhD Seminar Series
+    location: Lancaster University
+    month: February
+    paper: ""
+    note: ""
+  - year: 2017
+    event: Lancaster Game Theory Conference
+    location: Lancaster University
+    month: November
+    paper: ""
+    note: Poster
+  - year: 2017
+    event: PhD Summer School on Psychological Game Theory
+    location: University of East Anglia
+    month: July
+    paper: ""
+    note: ""
+  - year: 2017
+    event: 8th York Symposium on Game Theory
+    location: University of York
+    month: June
+    paper: ""
+    note: Poster

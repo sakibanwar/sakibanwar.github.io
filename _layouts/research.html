@@ -1,0 +1,23 @@
+---
+layout: default
+---
+{%- assign r = site.data.research -%}
+{% include page-banner.html title=page.title tags=r.interests tags_label="Research interests" %}
+
+<div class="wrap narrow content">
+  {%- assign sections = "published|Publications,working|Working Papers,progress|Work in Progress" | split: "," -%}
+  {%- for s in sections -%}
+    {%- assign parts = s | split: "|" -%}
+    {%- assign papers = r.papers | where: "status", parts[0] -%}
+    {%- if papers.size > 0 %}
+  <section class="paper-section" id="{{ parts[1] | slugify }}">
+    <h2>{{ parts[1] }}</h2>
+    <ol class="papers">
+      {%- for paper in papers %}
+      {% include paper.html paper=paper %}
+      {%- endfor %}
+    </ol>
+  </section>
+    {%- endif -%}
+  {%- endfor %}
+</div>

@@ -1,0 +1,19 @@
+{%- assign p = site.data.profile -%}
+<div class="social">
+  {%- if p.linkedin and p.linkedin != "" %}
+  <a href="{{ p.linkedin }}" aria-label="LinkedIn" title="LinkedIn">{% include icon.html name="linkedin" %}</a>
+  {%- endif %}
+  {%- if p.github and p.github != "" %}
+  <a href="{{ p.github }}" aria-label="GitHub" title="GitHub">{% include icon.html name="github" %}</a>
+  {%- endif %}
+  {%- if p.google_scholar and p.google_scholar != "" %}
+  <a href="{{ p.google_scholar }}" aria-label="Google Scholar" title="Google Scholar">{% include icon.html name="scholar" %}</a>
+  {%- endif %}
+  {%- if p.orcid and p.orcid != "" %}
+  <a href="{{ p.orcid }}" aria-label="ORCID" title="ORCID">{% include icon.html name="orcid" %}</a>
+  {%- endif %}
+  {%- if p.email and p.email != "" %}
+  {%- assign em = p.email | split: "@" %}
+  <a class="js-email" href="#contact" data-u="{{ em[0] }}" data-d="{{ em[1] }}" aria-label="Email" title="Email">{% include icon.html name="email" %}</a>
+  {%- endif %}
+</div>

@@ -1,0 +1,16 @@
+# Co-authors and their websites.
+# Any co-author name on a paper that matches a name here is linked automatically,
+# so you only need to enter each person's website once.
+people:
+  - name: Alexander Matros
+    url: https://sc.edu/study/colleges_schools/moore/directory/matros_alexander.php
+  - name: Sonali SenGupta
+    url: https://sites.google.com/view/sonalisg/home
+  - name: Jorge Bruno
+    url: https://sites.google.com/view/dr-jorge-bruno/bio
+  - name: Renaud Foucart
+    url: https://sites.google.com/site/renaudfoucart/
+  - name: Konstantinos Georgalos
+    url: https://georgalosk.weebly.com/
+  - name: Trivikram Dokka
+    url: https://sites.google.com/view/trivikramdokka/home

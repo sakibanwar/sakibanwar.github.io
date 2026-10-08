@@ -1,0 +1,209 @@
+# Shown in the banner at the top of the Research page.
+interests:
+  - Experimental Economics
+  - Behavioural Economics
+  - Applied Game Theory
+  - Public Economics
+
+# Every paper goes in this one list. The "status" decides which section it appears in:
+#   published  ->  Publications
+#   working    ->  Working Papers
+#   progress   ->  Work in Progress
+# Papers appear in the same order as they are listed here, within each section.
+# To move a paper from "Working Papers" to "Publications", change its status and
+# fill in journal/details.
+papers:
+  - title: Public Good Provision with a Governor
+    status: published
+    coauthors:
+      - Alexander Matros
+      - Sonali SenGupta
+    url: https://doi.org/10.1016/j.mathsocsci.2026.102525
+    journal: Mathematical Social Sciences
+    details: 141 (2026)
+    note: ""
+    links:
+      - label: Journal
+        url: https://doi.org/10.1016/j.mathsocsci.2026.102525
+      - label: arXiv
+        url: https://arxiv.org/abs/2210.10642
+    pdf: ""
+    abstract: >-
+      We study a public good game with *N* citizens and a Governor who allocates resources
+      from a common fund. Citizens may voluntarily contribute or be compelled to do so if
+      audited, in which case shirkers face a penalty. The Governor decides how much of the
+      fund to devote to public good provision, with the remainder embezzled. Crucially, the
+      Governor's utility combines material payoffs from embezzlement with belief-dependent
+      reputational concerns. We characterize the symmetric subgame perfect equilibria (SSPE)
+      of the game. The model always admits at least one pure-strategy equilibrium, ranging
+      from universal free-riding with complete embezzlement to full contribution with
+      efficient provision. Symmetric mixed-strategy equilibria arise only within a limited
+      region of the parameter space and may not be unique. Our analysis highlights the roles
+      of penalties, audits, and reputational incentives in sustaining contribution and
+      provision, thereby linking public good provision with the broader literature on
+      corruption, embezzlement, and psychological game theory.
+
+  - title: Efficient Public Good Provision Between and Within Groups
+    status: published
+    coauthors:
+      - Jorge Bruno
+      - Renaud Foucart
+      - Sonali SenGupta
+    url: https://www.sciencedirect.com/science/article/pii/S0899825624001933
+    journal: Games and Economic Behavior
+    details: 150, 183–190 (2025)
+    note: ""
+    links:
+      - label: Journal
+        url: https://www.sciencedirect.com/science/article/pii/S0899825624001933
+      - label: arXiv
+        url: https://arxiv.org/abs/2303.10514v3
+    pdf: ""
+    abstract: >-
+      We generalize the model of Gallice and Monzon (2019) to incorporate a public goods game
+      with groups, position uncertainty, and observational learning. Contributions are
+      simultaneous within groups, but groups play sequentially based on their observation of
+      an incomplete sample of past contributions. We show that full cooperation between and
+      within groups is possible with self-interested players on a fixed horizon. Position
+      uncertainty implies the existence of an equilibrium where groups of players
+      conditionally cooperate in the hope of influencing further groups. Conditional
+      cooperation implies that each group member is pivotal, so that efficient simultaneous
+      provision within groups is an equilibrium.
+
+  - title: "Position Uncertainty in a Sequential Public Goods Game: An Experiment"
+    status: published
+    coauthors:
+      - Konstantinos Georgalos
+    url: https://link.springer.com/article/10.1007/s10683-024-09831-3
+    journal: Experimental Economics
+    details: 27, 820–853 (2024)
+    note: ""
+    links:
+      - label: Journal
+        url: https://doi.org/10.1007/s10683-024-09831-3
+      - label: arXiv
+        url: https://arxiv.org/abs/2308.00179
+      - label: Pre-registration
+        url: https://doi.org/10.17605/OSF.IO/ZAW64
+    pdf: ""
+    abstract: >-
+      Gallice and Monzón (2019) present a natural environment that sustains full
+      co-operation in one-shot social dilemmas among a finite number of self-interested
+      agents. They demonstrate that in a sequential public goods game, where agents lack
+      knowledge of their position in the sequence but can observe some predecessors'
+      actions, full contribution emerges in equilibrium due to agents' incentive to induce
+      potential successors to follow suit. In this study, we aim to test the theoretical
+      predictions of this model through an economic experiment. We conducted three
+      treatments, varying the amount of information about past actions that a subject can
+      observe, as well as their positional awareness. Through rigorous structural
+      econometric analysis, we found that approximately 25% of the subjects behaved in line
+      with the theoretical predictions. However, we also observed the presence of
+      alternative behavioural types among the remaining subjects. The majority were
+      classified as conditional co-operators, showing a willingness to cooperate based on
+      others' actions. Some subjects exhibited altruistic tendencies, while only a small
+      minority engaged in free-riding behaviour.
+
+  - title: "Playing Against the Machine: Cooperation, Communication, and Strategy Heterogeneity in Repeated Prisoner's Dilemma"
+    status: working
+    coauthors:
+      - Konstantinos Georgalos
+    url: ""
+    journal: ""
+    details: ""
+    note: Reject and Resubmit at *Experimental Economics*
+    links:
+      - label: arXiv
+        url: https://arxiv.org/abs/2603.15852
+    pdf: ""
+    abstract: >-
+      This paper investigates how natural language communication with an AI agent affects
+      human cooperative behaviour in indefinitely repeated Prisoner's Dilemma games. We
+      conduct a laboratory experiment (n = 126) with two between-subjects treatments varying
+      whether human participants chat with an AI chatbot (GPT-5.2) before every round or
+      only before the first round of each supergame, and benchmark against human-human data
+      from Dvorak and Fehrler (2024) (n = 108). We find four main results. First,
+      cooperation against the AI is high and initially comparable to human-human levels,
+      but unlike in the human-human setting, where cooperation converges to near-complete
+      levels, cooperation against the AI plateaus and never reaches full cooperation.
+      Second, repeated communication, which substantially increases cooperation in
+      human-human interactions, has no detectable effect in the human-AI setting. Third,
+      strategy estimation reveals that human-AI subjects favour Grim Trigger under pre-play
+      communication and remain dispersed under repeated communication, whereas human-human
+      subjects converge to Tit-for-Tat and unconditional cooperation respectively. Fourth,
+      human-AI conversations contain more explicit strategy commitments but fewer emotional
+      and social messages. These results suggest that humans cooperate with AI at high rates
+      but do not develop the trust observed in human-human interactions. Cooperation in the
+      human-AI setting is sustained through conditional rules rather than through the
+      social bonds and mutual understanding that characterise human-human cooperation.
+
+  - title: "Position Uncertainty in a Prisoner's Dilemma Game: An Experiment"
+    status: working
+    coauthors:
+      - Konstantinos Georgalos
+      - Sonali SenGupta
+    url: ""
+    journal: ""
+    details: ""
+    note: Under review
+    links:
+      - label: arXiv
+        url: https://arxiv.org/abs/2504.10441
+    pdf: ""
+    abstract: >-
+      Gallice and Monzón (2019) present a natural environment that sustains full
+      cooperation in one-shot social dilemmas among a finite number of self-interested
+      agents. They demonstrate that in a sequential public goods game, where agents lack
+      knowledge of their position in the sequence but can observe some predecessors'
+      actions, full contribution emerges in equilibrium due to agents' incentive to induce
+      potential successors to follow suit. Furthermore, they show that this principle
+      extends to a number of social dilemmas, with the prominent example that of the
+      prisoner's dilemma. In this study, we experimentally test the theoretical predictions
+      of this model in a multi-player prisoner's dilemma environment, where subjects are not
+      aware of their position in the sequence and receive only partial information on past
+      cooperating actions. We test the predictions of the model, and through rigorous
+      structural econometric analysis, we test the descriptive capacity of the model against
+      alternative behavioural strategies, such as conditional cooperation, altruistic play
+      and free-riding behaviour. We find that the majority resorts to free-riding behaviour,
+      around 30% is classified as Gallice and Monzón (2019) types, followed by those with
+      social preference considerations and the unconditional altruists.
+
+  - title: Equilibria in Budget Games with Dissatisfaction Cost
+    status: working
+    coauthors:
+      - Jorge Bruno
+      - Trivikram Dokka
+      - Sonali SenGupta
+    url: ""
+    journal: ""
+    details: ""
+    note: New version coming soon! Previous version on arXiv and SSRN.
+    links:
+      - label: arXiv
+        url: https://arxiv.org/abs/2210.15035
+      - label: SSRN
+        url: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4260879
+    pdf: ""
+    abstract: ""
+
+  - title: Elicitation Mechanism in Dynamic Games
+    status: progress
+    coauthors:
+      - Konstantinos Georgalos
+
+  - title: Data-driven online scheduling of EV home charging
+    status: progress
+    coauthors:
+      - Trivikram Dokka
+
+  - title: Tax Evasion, Embezzlement and Public Good Provision
+    status: progress
+    coauthors:
+      - Alexander Matros
+      - Sonali SenGupta
+
+  - title: Stronger Bounds for Effort and Welfare Maximizing Equilibria in Network Public Good Games
+    status: progress
+    coauthors:
+      - Jorge Bruno
+      - Trivikram Dokka
+      - Sonali SenGupta

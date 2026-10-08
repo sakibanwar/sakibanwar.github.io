@@ -1,0 +1,55 @@
+---
+layout: default
+---
+{%- assign p = site.data.profile -%}
+{%- if p.cv_pdf and p.cv_pdf != "" -%}{%- assign cv = p.cv_pdf -%}{%- else -%}{%- assign cv = p.cv_url -%}{%- endif -%}
+
+<section class="hero-title">
+  <div class="wrap">
+    <h1>{{ p.name }}</h1>
+    <p>{{ p.position }}{% if p.affiliation and p.affiliation != "" %} &middot; {{ p.affiliation }}{% endif %}</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap home-grid">
+    <div class="home-side">
+      {%- if p.photo and p.photo != "" %}
+      <img class="portrait" src="{% include url.html u=p.photo %}" alt="Photo of {{ p.name }}" width="720" height="1079">
+      {%- endif %}
+      {%- if cv and cv != "" %}
+      <a class="btn-cv" href="{% include url.html u=cv %}">CV</a>
+      {%- endif %}
+      {% include social.html %}
+    </div>
+    <div class="bio">
+      {{ content }}
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <h2>Contact Info</h2>
+      {%- if p.address and p.address != "" %}
+      <address>{{ p.address | escape | newline_to_br }}</address>
+      {%- endif %}
+      {%- if p.phone and p.phone != "" %}
+      <p>Tel: {{ p.phone }}</p>
+      {%- endif %}
+      {%- if p.email and p.email != "" %}
+      {%- assign em = p.email | split: "@" %}
+      <p>Email: <a class="js-email" href="#contact" data-u="{{ em[0] }}" data-d="{{ em[1] }}">{{ em[0] }} [at] {{ em[1] }}</a></p>
+      {%- endif %}
+      {%- if p.affiliation_logo and p.affiliation_logo != "" %}
+      <a class="affil-logo" href="{{ p.affiliation_url }}"><img src="{% include url.html u=p.affiliation_logo %}" alt="{{ p.affiliation }}" width="600" height="218"></a>
+      {%- endif %}
+    </div>
+    {%- if p.map_query and p.map_query != "" %}
+    <div class="map">
+      <iframe title="Map: {{ p.map_query | escape }}" src="https://www.google.com/maps/embed?origin=mfe&amp;pb=!1m3!2m1!1s{{ p.map_query | url_encode }}!6i15" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    {%- endif %}
+  </div>
+</section>

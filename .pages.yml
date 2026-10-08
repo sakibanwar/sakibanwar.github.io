@@ -1,0 +1,338 @@
+# Pages CMS configuration (https://pagescms.org).
+# This file defines the editing forms you see at https://app.pagescms.org.
+# You do not need to touch it to update your site.
+
+media:
+  input: assets/uploads
+  output: /assets/uploads
+
+content:
+  - name: research
+    label: Research & papers
+    type: file
+    path: _data/research.yml
+    format: yaml
+    fields:
+      - name: interests
+        label: Research interests
+        description: Shown in the banner at the top of the Research page.
+        type: string
+        list: true
+      - name: papers
+        label: Papers
+        description: >-
+          Status decides the section: Published, Working paper or Work in progress.
+          Drag papers to change their order on the page.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title} ({status})"
+        fields:
+          - name: title
+            label: Title
+            type: string
+            required: true
+          - name: status
+            label: Status
+            type: select
+            required: true
+            options:
+              values:
+                - name: published
+                  label: Published
+                - name: working
+                  label: Working paper
+                - name: progress
+                  label: Work in progress
+          - name: coauthors
+            label: Co-authors
+            description: One name per line. Names that match the Co-authors list are linked automatically.
+            type: string
+            list: true
+          - name: url
+            label: Title link
+            description: Where the paper title links to (journal page, DOI or arXiv). Optional.
+            type: string
+          - name: journal
+            label: Journal
+            description: For published papers, e.g. Experimental Economics
+            type: string
+          - name: details
+            label: Volume, pages, year
+            description: e.g. 27, 820–853 (2024)
+            type: string
+          - name: note
+            label: Status note
+            description: e.g. Under review, or Reject and Resubmit at *Experimental Economics* (text between stars becomes italic).
+            type: string
+          - name: links
+            label: Buttons
+            description: Small buttons under the paper, e.g. arXiv, SSRN, Slides, Data, Pre-registration.
+            type: object
+            list: true
+            fields:
+              - name: label
+                label: Button text
+                type: string
+              - name: url
+                label: Link
+                type: string
+          - name: pdf
+            label: PDF upload
+            description: Optional. Adds a PDF button.
+            type: file
+            options:
+              extensions: [pdf]
+          - name: abstract
+            label: Abstract
+            description: Optional. Hidden behind an Abstract button on the page.
+            type: text
+
+  - name: people
+    label: Co-authors
+    type: file
+    path: _data/people.yml
+    format: yaml
+    fields:
+      - name: people
+        label: Co-authors
+        description: Each co-author's website. Used to link names on the Research page.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - name: name
+            label: Name (exactly as written on papers)
+            type: string
+            required: true
+          - name: url
+            label: Website
+            type: string
+
+  - name: home
+    label: Home page bio
+    type: file
+    path: index.md
+    format: yaml-frontmatter
+    fields:
+      - name: layout
+        type: string
+        hidden: true
+      - name: permalink
+        type: string
+        hidden: true
+      - name: body
+        label: Bio
+        type: rich-text
+        options:
+          format: markdown
+          media: false
+
+  - name: profile
+    label: Profile & contact
+    type: file
+    path: _data/profile.yml
+    format: yaml
+    fields:
+      - name: name
+        label: Name
+        type: string
+        required: true
+      - name: position
+        label: Position
+        type: string
+      - name: affiliation
+        label: Affiliation
+        type: string
+      - name: photo
+        label: Photo
+        type: image
+      - name: cv_pdf
+        label: CV (upload a PDF)
+        description: If you upload a PDF here, the CV buttons use it instead of the link below.
+        type: file
+        options:
+          extensions: [pdf]
+      - name: cv_url
+        label: CV (link)
+        description: e.g. a Google Drive link. Used only when no PDF is uploaded above.
+        type: string
+      - name: email
+        label: Email
+        type: string
+      - name: linkedin
+        label: LinkedIn URL
+        type: string
+      - name: github
+        label: GitHub URL
+        type: string
+      - name: google_scholar
+        label: Google Scholar URL
+        type: string
+      - name: orcid
+        label: ORCID URL
+        type: string
+      - name: address
+        label: Address
+        description: One line per row.
+        type: text
+      - name: phone
+        label: Phone
+        type: string
+      - name: map_query
+        label: Map location
+        description: What to search on Google Maps. Leave blank to hide the map.
+        type: string
+      - name: affiliation_logo
+        label: University logo
+        type: image
+      - name: affiliation_url
+        label: University website
+        type: string
+
+  - name: teaching
+    label: Teaching
+    type: file
+    path: _data/teaching.yml
+    format: yaml
+    fields:
+      - name: interests
+        label: Teaching interests
+        type: string
+        list: true
+      - name: textbooks_intro
+        label: Textbooks introduction
+        type: text
+      - name: textbooks
+        label: Open-access textbooks
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            type: string
+            required: true
+          - name: url
+            label: Link
+            type: string
+          - name: description
+            type: text
+      - name: groups
+        label: Module lists
+        description: Each list gets its own heading, e.g. "Currently teaching at the University of Winchester".
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Heading
+            type: string
+            required: true
+          - name: courses
+            label: Modules
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{name}"
+            fields:
+              - name: name
+                label: Module name
+                type: string
+                required: true
+              - name: details
+                label: Details
+                description: e.g. 2nd year, 2021 – present
+                type: string
+              - name: link_label
+                label: Button text
+                description: e.g. Python notes
+                type: string
+              - name: link_url
+                label: Button link
+                type: string
+
+  - name: talks
+    label: Talks
+    type: file
+    path: _data/talks.yml
+    format: yaml
+    fields:
+      - name: talks
+        label: Talks
+        description: Grouped by year on the page, newest year first.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{year} · {event}"
+        fields:
+          - name: year
+            label: Year
+            type: number
+            required: true
+          - name: event
+            label: Event or seminar
+            type: string
+            required: true
+          - name: location
+            label: Location / institution
+            type: string
+          - name: month
+            label: Month
+            type: string
+          - name: paper
+            label: Paper presented
+            description: Optional.
+            type: string
+          - name: note
+            label: Note
+            description: Optional, e.g. Poster or Online.
+            type: string
+
+  - name: cv
+    label: CV page
+    type: file
+    path: _data/cv.yml
+    format: yaml
+    fields:
+      - name: sections
+        label: Sections
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Section heading
+            type: string
+            required: true
+          - name: entries
+            label: Entries
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - name: title
+                type: string
+                required: true
+              - name: organisation
+                type: string
+              - name: date
+                type: string
+              - name: details
+                description: Optional. Markdown allowed.
+                type: text
+              - name: url
+                label: Link
+                type: string

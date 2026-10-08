@@ -1,0 +1,6 @@
+{%- comment -%}
+  Outputs a usable href. Site paths such as /assets/uploads/paper.pdf get the
+  baseurl added; full links (https://...) are left as they are.
+{%- endcomment -%}
+{%- assign first_char = include.u | slice: 0 -%}
+{%- if first_char == "/" -%}{{ include.u | relative_url }}{%- else -%}{{ include.u }}{%- endif -%}

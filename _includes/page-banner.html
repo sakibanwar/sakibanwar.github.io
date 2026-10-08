@@ -1,0 +1,15 @@
+<section class="page-banner">
+  <div class="wrap narrow">
+    <h1>{{ include.title }}</h1>
+    {%- if include.tags and include.tags.size > 0 %}
+    <ul class="tags" aria-label="{{ include.tags_label | default: 'Interests' }}">
+      {%- for t in include.tags %}
+      <li>{{ t }}</li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+    {%- if include.subtitle %}
+    <p class="banner-sub">{{ include.subtitle }}</p>
+    {%- endif %}
+  </div>
+</section>

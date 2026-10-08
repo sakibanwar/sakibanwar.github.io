@@ -1,0 +1,75 @@
+# Shown in the banner at the top of the Teaching page.
+interests:
+  - Game Theory
+  - Microeconomics
+  - Experimental Economics
+  - Behavioural Economics
+  - Applied Econometrics
+
+textbooks_intro: >-
+  The following open-access textbooks, built with Jupyter Book, provide step-by-step Python
+  tutorials covering data analysis and statistical inference, with executable code examples
+  and exercises drawn from economics and business datasets.
+
+textbooks:
+  - title: Python for Data Analysis
+    url: https://sakibanwar.github.io/python-notes/intro.html
+    description: >-
+      Companion text for the Data Analytics and Data Analysis modules, covering Python
+      fundamentals, pandas, data visualisation, regression, and dashboard creation with
+      Streamlit.
+  - title: Python for Statistics and Quantitative Methods
+    url: https://sakibanwar.github.io/python-notes/stats/intro_stats.html
+    description: >-
+      Companion text for the Quantitative Methods and Statistics module, with expanded
+      coverage of data visualisation, filtering, and a statistics-focused regression case
+      study.
+
+# Each group becomes a heading with its list of modules underneath.
+groups:
+  - title: Currently teaching at the University of Winchester
+    courses:
+      - name: Principles of Economics
+        details: 1st year, 2021 – present
+      - name: Microeconomic Analysis
+        details: 2nd year, 2021 – present
+      - name: Behavioral Economics & Finance
+        details: 3rd year, 2021 – present
+      - name: Monetary & Financial Economics
+        details: 3rd year, 2021, 2025 – present
+      - name: Data Analysis
+        details: 2nd year, 2025 – present
+        link_label: Python notes
+        link_url: https://sakibanwar.github.io/python-notes/intro.html
+      - name: Data Analytics and Modelling
+        details: Postgraduate, 2022 – present
+        link_label: Python notes
+        link_url: https://sakibanwar.github.io/python-notes/intro.html
+      - name: Quantitative Methods and Statistics
+        details: 1st year, 2025 – present
+        link_label: Python notes for statistics
+        link_url: https://sakibanwar.github.io/python-notes/stats/intro_stats.html
+      - name: Introduction to Excel
+        details: 1st year, 2025 – present
+
+  - title: Previously taught at Winchester
+    courses:
+      - name: Principles of Microeconomics
+        details: 1st year, 2021 – present
+      - name: Public Economics
+        details: 3rd year, 2023 – 2025
+      - name: Introduction to AI and Digital Technology
+        details: 1st year, 2024 – present
+      - name: Math Skills for Economists
+        details: 1st year, 2022 – 2023
+      - name: History of Economic Thought
+        details: 2nd year, 2021
+      - name: Introduction to Python
+        details: Workshop, 2021, 2022
+
+  - title: Teaching at Lancaster University (2016 – 2020)
+    courses:
+      - name: Game Theory
+      - name: Public Economics
+      - name: Advanced Microeconomics
+      - name: Principles of Economics

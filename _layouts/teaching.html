@@ -1,0 +1,45 @@
+---
+layout: default
+---
+{%- assign t = site.data.teaching -%}
+{% include page-banner.html title=page.title tags=t.interests tags_label="Teaching interests" %}
+
+<div class="wrap narrow content">
+  {%- if t.textbooks and t.textbooks.size > 0 %}
+  <section>
+    <h2>Open-Access Textbooks</h2>
+    {%- if t.textbooks_intro and t.textbooks_intro != "" %}
+    <p>{{ t.textbooks_intro }}</p>
+    {%- endif %}
+    <ul class="book-list">
+      {%- for book in t.textbooks %}
+      <li class="book">
+        <h3>{% if book.url and book.url != "" %}<a href="{% include url.html u=book.url %}">{{ book.title }}</a>{% else %}{{ book.title }}{% endif %}</h3>
+        {%- if book.description and book.description != "" %}
+        <p>{{ book.description }}</p>
+        {%- endif %}
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endif %}
+
+  {%- for group in t.groups %}
+  <section>
+    <h2>{{ group.title }}</h2>
+    <ul class="course-list">
+      {%- for course in group.courses %}
+      <li>
+        <span class="course-name">{{ course.name }}</span>
+        {%- if course.details and course.details != "" %}
+        <span class="course-details">{{ course.details }}</span>
+        {%- endif %}
+        {%- if course.link_url and course.link_url != "" %}
+        <a class="pill" href="{% include url.html u=course.link_url %}">{{ course.link_label | default: "Materials" }}</a>
+        {%- endif %}
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endfor %}
+</div>

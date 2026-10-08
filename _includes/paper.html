@@ -1,0 +1,51 @@
+{%- assign paper = include.paper -%}
+{%- assign paper_id = paper.title | slugify -%}
+<li class="paper">
+  <h3 class="paper-title">
+    {%- if paper.url and paper.url != "" -%}
+    <a href="{% include url.html u=paper.url %}">{{ paper.title }}</a>
+    {%- else -%}
+    {{ paper.title }}
+    {%- endif -%}
+  </h3>
+  {%- if paper.coauthors and paper.coauthors.size > 0 %}
+  <p class="paper-authors">with {% include coauthors.html names=paper.coauthors %}</p>
+  {%- endif %}
+
+  {%- capture venue -%}
+    {%- if paper.journal and paper.journal != "" -%}
+      <span class="paper-journal"><em>{{ paper.journal }}</em>{% if paper.details and paper.details != "" %} {{ paper.details }}{% endif %}</span>
+    {%- endif -%}
+    {%- if paper.note and paper.note != "" -%}
+      <span class="paper-note">{{ paper.note | markdownify | remove: "<p>" | remove: "</p>" | strip }}</span>
+    {%- endif -%}
+  {%- endcapture -%}
+  {%- if venue != "" %}
+  <p class="paper-venue">{{ venue }}</p>
+  {%- endif %}
+
+  {%- assign has_abstract = false -%}
+  {%- if paper.abstract and paper.abstract != "" -%}{%- assign has_abstract = true -%}{%- endif -%}
+  {%- capture links -%}
+    {%- if paper.pdf and paper.pdf != "" -%}
+      <a class="pill" href="{% include url.html u=paper.pdf %}">PDF</a>
+    {%- endif -%}
+    {%- for link in paper.links -%}
+      {%- if link.url and link.url != "" -%}
+      <a class="pill" href="{% include url.html u=link.url %}">{{ link.label | default: "Link" }}</a>
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if has_abstract -%}
+      <button class="pill pill-toggle" type="button" aria-expanded="false" aria-controls="abstract-{{ paper_id }}" data-abstract>Abstract</button>
+    {%- endif -%}
+  {%- endcapture -%}
+  {%- if links != "" %}
+  <p class="paper-links">{{ links }}</p>
+  {%- endif %}
+
+  {%- if has_abstract %}
+  <div class="abstract" id="abstract-{{ paper_id }}">
+    {{ paper.abstract | markdownify }}
+  </div>
+  {%- endif %}
+</li>

@@ -1,57 +1,49 @@
-# Site settings
-title: "Sakib Anwar"
-description: "Personal academic website - Experimental Economics, Game Theory, Public Economics"
-url: "https://sakibanwar.github.io"
+# ---------------------------------------------------------------------------
+# Site-wide settings. You rarely need to touch this file.
+# Your actual content lives in the _data/ folder (papers, teaching, talks, CV)
+# and in index.md (the bio on the home page).
+# ---------------------------------------------------------------------------
+
+title: Sakib Anwar
+tagline: Senior Lecturer in Economics, University of Winchester
+description: >-
+  Sakib Anwar, Senior Lecturer in Economics at the University of Winchester.
+  Experimental Economics, Applied Game Theory and Public Economics.
+url: "https://sakibanwar.github.io"   # change to https://www.sakibanwar.com once the domain points here
 baseurl: ""
+lang: en-GB
 
-# Personal info
-email: "sakib.anwar@winchester.ac.uk"
-linkedin_username: "chowdhurymohammad"
-github_username: "sakibanwar"
-scholar_userid: "p0SY6_IAAAAJ"
-orcid_id: "" # Add if you have one
+# Menu at the top of every page (in this order)
+nav:
+  - title: Home
+    url: /
+  - title: Research
+    url: /research/
+  - title: Teaching
+    url: /teaching/
+  - title: CV
+    url: /cv/
+  - title: Talks
+    url: /talks/
 
-# Site author
-author:
-  name: "Chowdhury Mohammad Sakib Anwar"
-  email: "sakib.anwar@winchester.ac.uk"
-  
-# Navigation pages
-header_pages:
-  - index.md
-  - research.md
-  - teaching.md
-  - cv.md
-  - talks.md
+# Used by jekyll-seo-tag for search engines and link previews
+author: Sakib Anwar
+logo: /assets/img/profile.jpg
 
-# Build settings
+# GitHub Pages adds a default theme unless told not to; this site has its own design.
+theme: null
+
 markdown: kramdown
 kramdown:
   input: GFM
-  syntax_highlighter: rouge
 
-# Plugins
 plugins:
-  - jekyll-feed
-  - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-sitemap
 
-# Collections for news/announcements (optional)
-collections:
-  news:
-    defaults:
-      layout: post
-    output: false
-    permalink: /news/:year/:title/
-
-# Exclude from processing
 exclude:
+  - README.md
   - Gemfile
   - Gemfile.lock
-  - README.md
   - vendor/
-  - .sass-cache/
-  - .jekyll-cache/
-  - gemfiles/
-  - node_modules/
-  - "*.gemspec"
+  - .bundle/

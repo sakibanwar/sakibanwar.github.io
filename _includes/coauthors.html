@@ -1,0 +1,12 @@
+{%- comment -%}
+  Turns a list of names into "A, B and C", linking anyone listed in _data/people.yml.
+{%- endcomment -%}
+{%- for name in include.names -%}
+  {%- assign person = site.data.people.people | where: "name", name | first -%}
+  {%- unless forloop.first -%}{%- if forloop.last %} and {% else %}, {% endif -%}{%- endunless -%}
+  {%- if person and person.url and person.url != "" -%}
+    <a href="{{ person.url }}">{{ name }}</a>
+  {%- else -%}
+    {{ name }}
+  {%- endif -%}
+{%- endfor -%}

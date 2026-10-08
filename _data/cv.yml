@@ -1,0 +1,80 @@
+# Each section becomes a heading on the CV page.
+# Every entry needs a title; organisation, date, details and url are optional.
+# "details" understands Markdown, e.g. *italics* or [a link](https://example.com).
+sections:
+  - title: Employment
+    entries:
+      - title: Senior Lecturer
+        organisation: Faculty of Business and Digital Technology, University of Winchester
+        date: September 2026 – present
+      - title: Lecturer
+        organisation: Faculty of Business and Digital Technology, University of Winchester
+        date: August 2021 – August 2026
+      - title: Teaching Associate
+        organisation: Department of Economics, Lancaster University Management School
+        date: November 2020 – July 2021
+      - title: Research Assistant (part-time)
+        organisation: Department of Management Science, Lancaster University Management School
+        date: September 2020 – January 2021
+        details: >-
+          EPSRC funded project "Understanding and Modelling Electric Vehicle (EV) Charging
+          Behaviour Using Choice Modelling"
+
+  - title: Education
+    entries:
+      - title: PhD Economics
+        organisation: Lancaster University
+        date: "2020"
+        details: >-
+          Thesis: *Essays in Public Economics* (passed with no corrections)<br>
+          Advisors: Professor Alexander Matros & Dr Sonali Sen Gupta<br>
+          Examiners: Prof. Siddhartha Bandyopadhyay & Dr Konstantinos Georgalos
+      - title: MRes Economics
+        organisation: University of Essex
+        date: "2016"
+      - title: MSc Economics
+        organisation: University of Surrey
+        date: "2014"
+      - title: BSc (Hons) Economics
+        organisation: University of Nottingham
+        date: "2013"
+
+  - title: Teaching Qualifications and Training
+    entries:
+      - title: Fellow of the Higher Education Academy
+        date: "2023"
+        url: https://drive.google.com/file/d/1Rphd3Wi2-F0bHInoFGKzJ4fueryXP1GA/view?usp=sharing
+      - title: PGCert in Learning and Teaching
+        organisation: University of Winchester
+        date: "2023"
+      - title: GTA Workshop
+        organisation: University of Oxford
+        date: September 2016
+      - title: Introduction to Teaching for GTAs
+        organisation: Lancaster University
+        date: October 2016
+
+  - title: Grants, Awards and Competitions
+    entries:
+      - title: Semi-finalist, Wellcome Trust Data Science Ideathon
+        date: "2023"
+        url: https://wellcome.org/grant-funding/schemes/ideathon
+      - title: Small Research Grant (£648)
+        organisation: Department of Economics, Lancaster University
+        date: "2020"
+      - title: Departmental Studentship Award
+        organisation: Lancaster University
+        date: 2016 – 2019
+      - title: Nottingham Advantage Award
+        organisation: University of Nottingham
+        date: "2013"
+      - title: Duke of Edinburgh's Award, Bronze Level
+        organisation: The Duke of Edinburgh's International Award Foundation
+        date: "2009"
+
+  - title: Skills
+    entries:
+      - title: Computing
+        details: Python, R, oTree, Django, Mathematica, Stata, MATLAB, LaTeX, HTML
+      - title: Languages
+        details: English (fluent), Bengali (native)
