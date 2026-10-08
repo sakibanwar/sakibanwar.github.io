@@ -78,17 +78,21 @@ bundle exec jekyll serve
 
 previews the website at <http://localhost:4000>.
 
-## Using www.sakibanwar.com
+## Domain (www.sakibanwar.com)
 
-The site is published at <https://sakibanwar.github.io>. To move the custom domain over
-from Google Sites:
+The domain is registered at GoDaddy and set as this repo's custom domain
+(**Settings → Pages**). GoDaddy DNS should have:
 
-1. In this repo: **Settings → Pages → Custom domain**, enter `www.sakibanwar.com`, save.
-2. At your domain registrar, point `www` to `sakibanwar.github.io` with a CNAME record, and
-   the bare domain to GitHub's IP addresses (A records `185.199.108.153`,
-   `185.199.109.153`, `185.199.110.153`, `185.199.111.153`).
-3. Once it works, tick **Enforce HTTPS** and change `url:` in `_config.yml` to
-   `https://www.sakibanwar.com`.
+| Type | Name | Value |
+|---|---|---|
+| CNAME | www | sakibanwar.github.io |
+| A | @ | 185.199.108.153 |
+| A | @ | 185.199.109.153 |
+| A | @ | 185.199.110.153 |
+| A | @ | 185.199.111.153 |
+
+and no domain forwarding. Once GitHub's DNS check passes, tick **Enforce HTTPS** in
+**Settings → Pages**.
 
 ## Changing the look
 
