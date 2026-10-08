@@ -66,17 +66,16 @@ places:
         modules:
           - name: Principles of Economics
             level: 1st Year, year-long
-            tools: MobLab
             dates: Aug 2025–Present
           - name: Quantitative Methods & Statistics
             level: 1st Year, year-long
-            tools: Python, Colab, Desmos, GeoGebra
+            tools: Python, Colab, Desmos
             dates: Aug 2025–Present
             link_label: Python notes for statistics
             link_url: https://sakibanwar.github.io/python-notes/stats/intro_stats.html
           - name: Microeconomics Analysis
             level: 2nd Year, year-long
-            tools: MobLab, Desmos, GeoGebra
+            tools: Desmos
             dates: Aug 2021–Present
           - name: Data Analysis
             level: 2nd Year
