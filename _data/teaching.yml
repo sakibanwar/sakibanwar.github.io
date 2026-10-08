@@ -126,36 +126,68 @@ places:
         modules:
           - name: Behavioural Economics and Finance
             level: 3rd Year
+            students:
+              - Economics & Finance
             note: designed from scratch
             tools: oTree, VeconLab
             dates: Jan 2022–Aug 2026
           - name: Monetary and Financial Economics
             level: 3rd Year
+            students:
+              - Economics & Finance
             dates: Aug 2025–Aug 2026
           - name: Introduction to Excel
             level: 1st Year
+            students:
+              - Accounting & Finance
+              - Economics & Finance
+              - Computer Science
+              - Cyber Security
+              - Business Management
+              - Marketing
             dates: Aug 2025–Aug 2026
           - name: Public Economics
             level: 3rd Year
+            students:
+              - Economics & Finance
+              - Philosophy, Politics & Economics
             dates: Sep 2023–May 2025
           - name: Principles of Microeconomics
             level: 1st Year, year-long
+            students:
+              - Economics & Finance
             dates: Aug 2021–May 2024
           - name: Introduction to AI and Digital Technology
             level: 1st Year
+            students:
+              - Accounting & Finance
+              - Economics & Finance
+              - Computer Science
+              - Cyber Security
+              - Business Management
+              - Marketing
             dates: Aug 2024–May 2025
           - name: Mathematical Skills for Economists
             level: 1st Year
+            students:
+              - Economics & Finance
             tools: Desmos, GeoGebra
             dates: Aug 2022–May 2023
           - name: Monetary and Financial Economics
             level: 3rd Year
+            students:
+              - Economics & Finance
             dates: Aug 2021–Jan 2022
           - name: History of Economic Thought
             level: 2nd Year
+            students:
+              - Economics & Finance
+              - Philosophy, Politics & Economics
             dates: Aug 2021–Jan 2022
           - name: Introduction to Python
             level: Workshop
+            students:
+              - Economics & Finance
             dates: Jan 2022–May 2022
 
   - name: Lancaster University
