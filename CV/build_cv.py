@@ -139,9 +139,9 @@ def header_rows(p):
         row2.append(item(r"\faGlobe", re.sub(r"^https?://", "", p["website"]).rstrip("/"), p["website"]))
     if p.get("github"):
         row2.append(item(r"\faGithub", re.sub(r"^https?://(www\.)?", "", p["github"]).rstrip("/"), p["github"]))
-    if p.get("google_scholar"):
+    if p.get("google_scholar") and p.get("google_scholar_on_cv"):
         row2.append(item(r"\aiGoogleScholar", "Google Scholar", p["google_scholar"]))
-    if p.get("orcid"):
+    if p.get("orcid") and p.get("orcid_on_cv"):
         row2.append(item(r"\aiOrcid", re.sub(r"^https?://(www\.)?orcid\.org/", "", p["orcid"]), p["orcid"]))
     if p.get("cv_location"):
         row2.append(item(r"\faMapMarker*", p["cv_location"]))

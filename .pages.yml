@@ -483,6 +483,12 @@ content:
       - name: orcid
         label: ORCID URL
         type: string
+      - name: google_scholar_on_cv
+        label: Also show Google Scholar in the PDF CV header
+        type: boolean
+      - name: orcid_on_cv
+        label: Also show ORCID in the PDF CV header
+        type: boolean
       - name: address
         label: Address (website)
         description: One line per row.

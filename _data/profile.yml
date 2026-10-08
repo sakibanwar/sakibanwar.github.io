@@ -12,11 +12,14 @@ email_personal: cm.sakib.anwar@gmail.com
 phone: 01962 675219
 website: https://www.sakibanwar.com
 
-# Leave any of these blank to hide the icon. Scholar and ORCID also appear in the PDF CV header.
+# Icons on the home page. Leave any of these blank to hide the icon.
 linkedin: https://www.linkedin.com/in/chowdhurymohammad/
 github: https://github.com/sakibanwar
-google_scholar: ""
+google_scholar: "https://scholar.google.co.uk/citations?user=p0SY6_IAAAAJ&hl=en"
 orcid: ""
+# Also put Scholar / ORCID in the PDF CV header?
+google_scholar_on_cv: false
+orcid_on_cv: false
 
 address: |-
   UWBS 005
