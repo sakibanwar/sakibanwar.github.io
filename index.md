@@ -11,7 +11,7 @@ I am a Senior Lecturer in Economics in the [Faculty of Business and Law](https:/
 
 Before joining Winchester, I worked as a Teaching Associate in the [Department of Economics, Lancaster University](https://www.lancaster.ac.uk/lums/our-departments/economics/).
 
-I received my PhD from Lancaster University in 2020 under the supervision of [Prof. Alexander Matros](http://www.lancaster.ac.uk/lums/people/alexander-matros) and [Dr Sonali Sen Gupta](https://sites.google.com/view/sonalisg). I am also a Fellow of the Higher Education Academy.
+I received my PhD from Lancaster University in 2020. I am also a Fellow of the Higher Education Academy.
 
 My main research interests are Experimental Economics, Applied Game Theory, and Public Economics. My research has been published in leading economics journals: *Experimental Economics* and *Games and Economic Behavior*.
 
