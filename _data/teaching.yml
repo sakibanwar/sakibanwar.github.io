@@ -80,6 +80,8 @@ places:
             link_url: https://www.sakibanwar.com/python-notes/stats/intro_stats.html
           - name: Microeconomics Analysis
             level: 2nd Year, year-long
+            students:
+              - Economics & Finance
             tools: Desmos
             dates: Aug 2021–Present
           - name: Data Analysis
