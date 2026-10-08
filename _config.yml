@@ -32,7 +32,7 @@ cv_pdf: /assets/cv/Sakib_Anwar_CV.pdf
 
 # Google Analytics 4 Measurement ID (starts with G-). Leave empty to switch
 # analytics and the cookie banner off.
-google_analytics: ""
+google_analytics: "G-XC86MJ85NL"
 
 # Used by jekyll-seo-tag for search engines and link previews
 author: Sakib Anwar
