@@ -284,6 +284,11 @@ content:
                   - name: note_on_website
                     label: Also show this note on the website
                     type: boolean
+                  - name: students
+                    label: Students (website only)
+                    description: Programme labels, e.g. Economics & Finance. Add one per line.
+                    type: string
+                    list: true
                   - name: tools
                     label: Tools, e.g. Python, Colab
                     type: string

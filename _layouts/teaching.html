@@ -37,7 +37,7 @@ layout: default
     <ul class="course-list">
       {%- for m in modules %}
       <li>
-        <span class="course-main">
+        <div class="course-main">
           <span class="course-name">{{ m.name }}</span>
           {%- capture details -%}
             {{ m.level }}{% if m.note_on_website and m.note and m.note != "" %}{% if m.level and m.level != "" %}, {% endif %}{{ m.note }}{% endif %}{% if m.level and m.level != "" and m.dates and m.dates != "" %} &middot; {% endif %}{{ m.dates }}
@@ -45,8 +45,11 @@ layout: default
           {%- if details != "" %}
           <span class="course-details">{{ details }}</span>
           {%- endif %}
-        </span>
+        </div>
         {%- capture extras -%}
+          {%- for programme in m.students -%}
+          <span class="course-programme">{{ programme }}</span>
+          {%- endfor -%}
           {%- if m.tools and m.tools != "" -%}
           <span class="course-tools">{{ m.tools }}</span>
           {%- endif -%}
@@ -55,7 +58,7 @@ layout: default
           {%- endif -%}
         {%- endcapture -%}
         {%- if extras != "" %}
-        <span class="course-extras">{{ extras }}</span>
+        <div class="course-extras">{{ extras }}</div>
         {%- endif %}
       </li>
       {%- endfor %}
