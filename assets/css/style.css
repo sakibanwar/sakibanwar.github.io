@@ -177,8 +177,13 @@ html:not(.js) .pill-toggle { display: none; }
 .course-details { color: var(--muted); font-size: .95rem; }
 .course-list .pill { margin-left: auto; }
 .course-tools, .cv-tag { color: var(--muted); font-size: .82rem; border: 1px solid var(--line); background: var(--soft); border-radius: 4px; padding: 0 7px; }
-.content .group-title { font-size: 1.05rem; font-weight: 700; color: var(--ink); margin: 1.4rem 0 .2rem; }
-.group-note { font-weight: 400; color: var(--muted); }
+.content .group-title {
+  font-size: .85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+  color: var(--accent); margin: 2.2rem 0 .3rem; padding-bottom: .45rem;
+  border-bottom: 2px solid var(--accent);
+}
+.content h2 + .group-title { margin-top: 1.2rem; }
+.group-note { font-size: .95rem; font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--muted); }
 
 /* CV */
 .cv-entry { display: flex; justify-content: space-between; gap: 6px 28px; padding: .75rem 0; border-bottom: 1px solid var(--line); }
