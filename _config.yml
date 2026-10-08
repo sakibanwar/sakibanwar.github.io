@@ -30,6 +30,10 @@ nav:
 # (see .github/workflows/build.yml), so there is nothing to upload by hand.
 cv_pdf: /assets/cv/Sakib_Anwar_CV.pdf
 
+# Google Analytics 4 Measurement ID (starts with G-). Leave empty to switch
+# analytics and the cookie banner off.
+google_analytics: ""
+
 # Used by jekyll-seo-tag for search engines and link previews
 author: Sakib Anwar
 logo: /assets/img/profile.jpg

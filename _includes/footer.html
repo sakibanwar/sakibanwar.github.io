@@ -1,6 +1,6 @@
 <footer class="site-footer">
   <div class="wrap footer-inner">
     <span>&copy; {{ site.time | date: '%Y' }} {{ site.data.profile.name }}</span>
-    <span>Last updated {{ site.time | date: '%-d %B %Y' }}</span>
+    <span>Last updated {{ site.time | date: '%-d %B %Y' }}{% if site.google_analytics and site.google_analytics != "" %} &middot; <a href="#" data-cookie-settings>Cookie settings</a>{% endif %}</span>
   </div>
 </footer>

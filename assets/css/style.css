@@ -238,3 +238,21 @@ html:not(.js) .pill-toggle { display: none; }
 /* ---------------- Footer ---------------- */
 .site-footer { border-top: 1px solid var(--line); padding: 22px 0; color: var(--muted); font-size: .88rem; }
 .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+/* ---------------- Cookie banner ---------------- */
+.consent {
+  position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 50;
+  max-width: 540px; margin: 0 auto; padding: 14px 16px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px;
+  background: var(--white); border: 1px solid var(--line); border-top: 3px solid var(--accent);
+  border-radius: 6px; box-shadow: 0 8px 30px rgba(0, 0, 0, .15); font-size: .95rem;
+}
+.consent[hidden] { display: none; }
+.consent p { margin: 0; flex: 1 1 240px; }
+.consent-buttons { display: flex; gap: 8px; }
+.consent button { font: inherit; font-size: .9rem; padding: 6px 16px; border-radius: 4px; border: 1px solid var(--accent); cursor: pointer; }
+.consent-accept { background: var(--accent); color: var(--white); }
+.consent-accept:hover { background: var(--maroon-dark); }
+.consent-decline { background: var(--white); color: var(--accent); }
+.consent-decline:hover { background: var(--accent-tint); }
+.site-footer a { color: inherit; }
