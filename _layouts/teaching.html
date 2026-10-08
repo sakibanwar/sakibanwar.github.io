@@ -28,19 +28,23 @@ layout: default
   {%- for place in t.places %}
   {%- unless place.hide_from_website %}
   <section>
-    <h2>{{ place.name }}</h2>
-    {%- for group in place.groups %}
-    {%- assign modules = group.modules | where_exp: "m", "m.hide_from_website != true" %}
-    {%- if group.title and group.title != "" %}
-    {%- capture heading %}<h3 class="group-title">{{ group.title }}{% if group.note_on_website and group.note and group.note != "" %} <span class="group-note">({{ group.note }})</span>{% endif %}</h3>{% endcapture %}
-    {%- if forloop.first and forloop.parentloop.first %}
-    <div class="group-head">
-      {{ heading }}
+    {%- assign has_tags = false %}
+    {%- for g in place.groups %}{% for m in g.modules %}
+      {%- if m.students and m.students.size > 0 %}{% assign has_tags = true %}{% endif %}
+      {%- if m.tools and m.tools != "" %}{% assign has_tags = true %}{% endif %}
+    {%- endfor %}{% endfor %}
+    {%- if has_tags %}
+    <div class="section-head">
+      <h2>{{ place.name }}</h2>
       <p class="legend"><span class="course-programme">Students' programme</span><span class="course-tools">Software used</span></p>
     </div>
     {%- else %}
-    {{ heading }}
+    <h2>{{ place.name }}</h2>
     {%- endif %}
+    {%- for group in place.groups %}
+    {%- assign modules = group.modules | where_exp: "m", "m.hide_from_website != true" %}
+    {%- if group.title and group.title != "" %}
+    <h3 class="group-title">{{ group.title }}{% if group.note_on_website and group.note and group.note != "" %} <span class="group-note">({{ group.note }})</span>{% endif %}</h3>
     {%- endif %}
     <ul class="course-list">
       {%- for m in modules %}
