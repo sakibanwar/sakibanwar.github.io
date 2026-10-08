@@ -187,6 +187,13 @@ html:not(.js) .pill-toggle { display: none; }
 }
 .content h2 + .group-title { margin-top: 1.2rem; }
 .group-note { font-size: .95rem; font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--muted); }
+.group-head {
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px;
+  margin: 2.2rem 0 .3rem; padding-bottom: .45rem; border-bottom: 2px solid var(--accent);
+}
+.content h2 + .group-head { margin-top: 1.2rem; }
+.content .group-head .group-title { margin: 0; padding: 0; border: 0; }
+.legend { display: flex; gap: 6px; margin: 0; }
 
 /* CV */
 .cv-entry { display: flex; justify-content: space-between; gap: 6px 28px; padding: .75rem 0; border-bottom: 1px solid var(--line); }

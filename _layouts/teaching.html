@@ -32,7 +32,15 @@ layout: default
     {%- for group in place.groups %}
     {%- assign modules = group.modules | where_exp: "m", "m.hide_from_website != true" %}
     {%- if group.title and group.title != "" %}
-    <h3 class="group-title">{{ group.title }}{% if group.note_on_website and group.note and group.note != "" %} <span class="group-note">({{ group.note }})</span>{% endif %}</h3>
+    {%- capture heading %}<h3 class="group-title">{{ group.title }}{% if group.note_on_website and group.note and group.note != "" %} <span class="group-note">({{ group.note }})</span>{% endif %}</h3>{% endcapture %}
+    {%- if forloop.first and forloop.parentloop.first %}
+    <div class="group-head">
+      {{ heading }}
+      <p class="legend"><span class="course-programme">Students' programme</span><span class="course-tools">Software used</span></p>
+    </div>
+    {%- else %}
+    {{ heading }}
+    {%- endif %}
     {%- endif %}
     <ul class="course-list">
       {%- for m in modules %}
