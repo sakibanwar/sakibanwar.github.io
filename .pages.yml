@@ -255,6 +255,13 @@ content:
               - name: title
                 label: Heading, e.g. Current Modules
                 type: string
+              - name: note
+                label: Note after the heading
+                description: e.g. 2026–27, module leader for all eight. PDF CV only unless ticked below.
+                type: string
+              - name: note_on_website
+                label: Also show this note on the website
+                type: boolean
               - name: modules
                 label: Modules
                 type: object
@@ -270,6 +277,13 @@ content:
                   - name: level
                     label: Level, e.g. 2nd Year
                     type: string
+                  - name: note
+                    label: Extra note
+                    description: Added after the level, e.g. Computer Science students. PDF CV only unless ticked below.
+                    type: string
+                  - name: note_on_website
+                    label: Also show this note on the website
+                    type: boolean
                   - name: tools
                     label: Tools, e.g. Python, Colab
                     type: string

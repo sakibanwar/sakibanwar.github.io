@@ -7,7 +7,7 @@ interests:
   - Game Theory and Decision Theory
   - Public Economics
   - Quantitative Methods and Statistics
-  - Econometrics
+  - Applied Econometrics
   - Data Analytics
   - Programming (Python, R)
 
@@ -51,15 +51,18 @@ textbooks:
       study.
 
 # Each place has one or more module lists.
-#   note       PDF only, printed after the place name
+#   note       in brackets after a place name, a list heading or a module's level;
+#              PDF only unless note_on_website: true (list headings and modules)
 #   compact    PDF only: print the modules on one line, "Name (dates), ..."
-#   footnote   PDF only, a paragraph after the module lists
+#   footnote   PDF only: a paragraph after the module lists
 #   tools      e.g. "Python, Colab"; dates e.g. "Aug 2025–Present"
 places:
   - name: University of Winchester
-    note: Senior Lecturer, Sep 2026–Present; Lecturer, Aug 2021–Aug 2026; classes of 15–30
+    note: Senior Lecturer, Sep 2026–Present; Lecturer, Aug 2021–Aug 2026
     groups:
       - title: Current Modules
+        note: 2026–27, module leader for all eight
+        note_on_website: true
         modules:
           - name: Principles of Economics
             level: 1st Year, year-long
@@ -75,41 +78,45 @@ places:
             level: 2nd Year, year-long
             tools: MobLab, Desmos, GeoGebra
             dates: Aug 2021–Present
-          - name: Behavioural Economics and Finance
-            level: 3rd Year
-            tools: oTree, VeconLab, MobLab
-            dates: Jan 2022–Present
-          - name: Monetary and Financial Economics
-            level: 3rd Year
-            dates: Aug 2025–Present
           - name: Data Analysis
             level: 2nd Year
             tools: Python, Colab
             dates: Aug 2025–Present
             link_label: Python notes
             link_url: https://sakibanwar.github.io/python-notes/intro.html
-          - name: Data Analytics and Modelling
-            level: PG
-            tools: Python, Colab, Streamlit
-            dates: Jan 2023–Present
-            link_label: Python notes
-            link_url: https://sakibanwar.github.io/python-notes/intro.html
-          - name: Introduction to Excel
-            level: 1st Year
-            dates: Aug 2025–Present
           - name: Econometrics
-            level: 2nd Year
-            tools: Python
-            dates: Sep 2026–Present
-          - name: Artificial Intelligence
             level: 2nd Year
             tools: Python
             dates: Sep 2026–Present
           - name: Research and Consultancy Skills
             level: 2nd Year
             dates: Sep 2026–Present
+          - name: Artificial Intelligence
+            level: 2nd Year
+            note: Computer Science students
+            note_on_website: true
+            tools: Python
+            dates: Sep 2026–Present
+          - name: Data Analytics and Modelling
+            level: PG
+            note: designed from scratch
+            tools: Python, Colab, Streamlit
+            dates: Jan 2023–Present
+            link_label: Python notes
+            link_url: https://sakibanwar.github.io/python-notes/intro.html
       - title: Previous Modules
         modules:
+          - name: Behavioural Economics and Finance
+            level: 3rd Year
+            note: designed from scratch
+            tools: oTree, VeconLab
+            dates: Jan 2022–Aug 2026
+          - name: Monetary and Financial Economics
+            level: 3rd Year
+            dates: Aug 2025–Aug 2026
+          - name: Introduction to Excel
+            level: 1st Year
+            dates: Aug 2025–Aug 2026
           - name: Public Economics
             level: 3rd Year
             dates: Sep 2023–May 2025
@@ -132,12 +139,9 @@ places:
           - name: Introduction to Python
             level: Workshop
             dates: Jan 2022–May 2022
-    footnote: >-
-      **Selected module design**: Behavioural Economics and Finance, and the postgraduate
-      Data Analytics and Modelling; contributed to the BSc Economics and Finance revalidation
 
   - name: Lancaster University
-    note: Teaching Associate / GTA, Oct 2016–Jul 2021; all UG years, classes of 20–30 and 80+
+    note: Teaching Associate / GTA, Oct 2016–Jul 2021; all UG years
     compact: true
     groups:
       - title: ""
@@ -154,8 +158,3 @@ places:
             dates: 2019–2020
           - name: MASH library drop-in sessions
             dates: "2020"
-
-# PDF only.
-outreach: >-
-  Open-day taster lectures and school talks, most recently Farnborough Sixth Form College
-  (July 2025)

@@ -32,14 +32,14 @@ layout: default
     {%- for group in place.groups %}
     {%- assign modules = group.modules | where_exp: "m", "m.hide_from_website != true" %}
     {%- if group.title and group.title != "" %}
-    <h3 class="group-title">{{ group.title }}</h3>
+    <h3 class="group-title">{{ group.title }}{% if group.note_on_website and group.note and group.note != "" %} <span class="group-note">({{ group.note }})</span>{% endif %}</h3>
     {%- endif %}
     <ul class="course-list">
       {%- for m in modules %}
       <li>
         <span class="course-name">{{ m.name }}</span>
         {%- capture details -%}
-          {{ m.level }}{% if m.level and m.level != "" and m.dates and m.dates != "" %} &middot; {% endif %}{{ m.dates }}
+          {{ m.level }}{% if m.note_on_website and m.note and m.note != "" %}{% if m.level and m.level != "" %}, {% endif %}{{ m.note }}{% endif %}{% if m.level and m.level != "" and m.dates and m.dates != "" %} &middot; {% endif %}{{ m.dates }}
         {%- endcapture -%}
         {%- if details != "" %}
         <span class="course-details">{{ details }}</span>

@@ -209,11 +209,12 @@
 \vspace{-0.5em}
 ((* endif *))
 ((* if g.title *))
-\subsubsection*{((( g.title | tex )))}
+\subsubsection*{((( g.title | tex )))((* if g.note *)) \paren{((( g.note | md )))}((* endif *))}
 ((* endif *))
 \begin{itemize}
 ((* for m in g.modules *))
-    \item ((( m.name | md )))((* if m.level *)) \paren{((( m.level | tex )))}((* endif *))((* if m.tools *)) \cvtag{((( m.tools | tex )))}((* endif *))((* if m.dates *)) \hfill ((( m.dates | tex )))((* endif *))
+((* set level = [m.level, m.note] | select | join(', ') *))
+    \item ((( m.name | md )))((* if level *)) \paren{((( level | tex )))}((* endif *))((* if m.tools *)) \cvtag{((( m.tools | tex )))}((* endif *))((* if m.dates *)) \hfill ((( m.dates | tex )))((* endif *))
 
 ((* endfor *))
 \end{itemize}
