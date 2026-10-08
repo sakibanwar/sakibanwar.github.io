@@ -101,7 +101,8 @@ places:
           - name: Research and Consultancy Skills
             level: 2nd Year
             students:
-              - Accounting, Economics & Finance
+              - Accounting & Finance
+              - Economics & Finance
             dates: Sep 2026–Present
           - name: Artificial Intelligence
             level: 2nd Year
