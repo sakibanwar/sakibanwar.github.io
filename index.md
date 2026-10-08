@@ -7,7 +7,7 @@ Welcome to my website.
 
 My name is Chowdhury Mohammad Sakib Anwar.
 
-I am a Senior Lecturer in Economics in the [Faculty of Business and Digital Technology](https://www.winchester.ac.uk/About-Us/Leadership-and-governance/Our-faculties/bdt/) at the [University of Winchester](https://www.winchester.ac.uk/). I am also the Faculty Postgraduate Research Degree Lead.
+I am a Senior Lecturer in Economics in the [Faculty of Business and Law](https://www.winchester.ac.uk/About-Us/Leadership-and-governance/Our-faculties/fbl/) at the [University of Winchester](https://www.winchester.ac.uk/). I am also the Faculty Postgraduate Research Degree Lead.
 
 Before joining Winchester, I worked as a Teaching Associate in the [Department of Economics, Lancaster University](https://www.lancaster.ac.uk/lums/our-departments/economics/).
 

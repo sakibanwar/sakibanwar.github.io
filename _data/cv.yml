@@ -23,10 +23,10 @@ sections:
     type: entries
     entries:
       - title: Senior Lecturer
-        organisation: Faculty of Business and Digital Technology, University of Winchester
+        organisation: Faculty of Business and Law, University of Winchester
         date: Sep 2026–Present
       - title: Lecturer
-        organisation: Faculty of Business and Digital Technology, University of Winchester
+        organisation: Faculty of Business and Law, University of Winchester
         date: Aug 2021–Aug 2026
       - title: Teaching Associate
         organisation: Lancaster University Management School
@@ -194,7 +194,7 @@ sections:
     type: entries
     plain_titles: true
     entries:
-      - title: BDT Faculty Postgraduate Research Lead
+      - title: FBL Faculty Postgraduate Research Lead
         tag: Oversee 25+ doctoral students
         date: Jan 2024–Present
       - title: Personal Academic Tutor
