@@ -1,16 +1,18 @@
 name: Sakib Anwar
+full_name: Chowdhury Mohammad Sakib Anwar
 position: Senior Lecturer in Economics
 affiliation: University of Winchester
 photo: /assets/img/profile.jpg
 
-# CV button: an uploaded PDF wins over the link if both are filled in.
-cv_pdf: ""
-cv_url: https://drive.google.com/file/d/1EtySIG1SwL3kEW4WjTFzKk-GXD1rMJKh/view?usp=sharing
-
-# Shown as "name [at] domain" so spam bots can't harvest it easily.
+# Shown as "name [at] domain" on the website so spam bots can't harvest it easily.
 email: sakib.anwar@winchester.ac.uk
+# PDF CV only.
+email_personal: cm.sakib.anwar@gmail.com
+# Written the UK way; the PDF CV shows it as +44 (0)...
+phone: 01962 675219
+website: https://www.sakibanwar.com
 
-# Leave any of these blank to hide the icon.
+# Leave any of these blank to hide the icon. Scholar and ORCID also appear in the PDF CV header.
 linkedin: https://www.linkedin.com/in/chowdhurymohammad/
 github: https://github.com/sakibanwar
 google_scholar: ""
@@ -21,7 +23,8 @@ address: |-
   Faculty of Business & Digital Technology
   University of Winchester
   Winchester SO22 4NR
-phone: 01962 675219
+# PDF CV only: the short location line in the header.
+cv_location: University of Winchester, SO22 4NR, UK
 
 # Text to search on Google Maps. Leave blank to hide the map.
 map_query: Winchester Business School, University of Winchester, SO22 4NR

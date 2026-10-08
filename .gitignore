@@ -7,3 +7,8 @@ vendor/
 Gemfile.lock
 .DS_Store
 .claude/
+# Generated on every build by .github/workflows/build.yml
+CV/build/
+assets/cv/
+# Original hand-written CV, kept on this computer as a backup
+CV/cv2026_website.tex

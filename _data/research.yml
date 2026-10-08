@@ -1,17 +1,25 @@
-# Shown in the banner at the top of the Research page.
+# Research interests: the tags in the Research page banner (website only).
 interests:
   - Experimental Economics
   - Behavioural Economics
   - Applied Game Theory
   - Public Economics
 
-# Every paper goes in this one list. The "status" decides which section it appears in:
+# Every paper goes in this one list. It feeds BOTH the Research page and the PDF CV.
+# "status" decides the section:
 #   published  ->  Publications
 #   working    ->  Working Papers
 #   progress   ->  Work in Progress
-# Papers appear in the same order as they are listed here, within each section.
-# To move a paper from "Working Papers" to "Publications", change its status and
-# fill in journal/details.
+# Papers appear in this order within each section, on the website and in the CV.
+#
+# Fields
+#   url       main link (journal page or DOI); the title links here, the CV prints [Link]
+#   journal / details   for published papers, e.g. "Experimental Economics" / "27, 820–853 (2024)"
+#   note      status text, e.g. "**Submitted**" (**bold**, *italic*)
+#   ranking   PDF CV only, e.g. "ABS/AJG 3, CNRS 1"
+#   links     extra buttons / CV links, e.g. arXiv, SSRN, Pre-registration
+#   abstract  website only
+#   hide_from_cv / hide_from_website   set to true to keep a paper off one of them
 papers:
   - title: Public Good Provision with a Governor
     status: published
@@ -20,14 +28,11 @@ papers:
       - Sonali SenGupta
     url: https://doi.org/10.1016/j.mathsocsci.2026.102525
     journal: Mathematical Social Sciences
-    details: 141 (2026)
-    note: ""
+    details: 141, 102525 (2026)
+    ranking: CNRS 2
     links:
-      - label: Journal
-        url: https://doi.org/10.1016/j.mathsocsci.2026.102525
       - label: arXiv
         url: https://arxiv.org/abs/2210.10642
-    pdf: ""
     abstract: >-
       We study a public good game with *N* citizens and a Governor who allocates resources
       from a common fund. Citizens may voluntarily contribute or be compelled to do so if
@@ -49,16 +54,13 @@ papers:
       - Jorge Bruno
       - Renaud Foucart
       - Sonali SenGupta
-    url: https://www.sciencedirect.com/science/article/pii/S0899825624001933
+    url: https://doi.org/10.1016/j.geb.2024.12.006
     journal: Games and Economic Behavior
     details: 150, 183–190 (2025)
-    note: ""
+    ranking: ABS/AJG 3, CNRS 1
     links:
-      - label: Journal
-        url: https://www.sciencedirect.com/science/article/pii/S0899825624001933
       - label: arXiv
         url: https://arxiv.org/abs/2303.10514v3
-    pdf: ""
     abstract: >-
       We generalize the model of Gallice and Monzon (2019) to incorporate a public goods game
       with groups, position uncertainty, and observational learning. Contributions are
@@ -77,15 +79,13 @@ papers:
     url: https://link.springer.com/article/10.1007/s10683-024-09831-3
     journal: Experimental Economics
     details: 27, 820–853 (2024)
-    note: ""
+    ranking: ABS/AJG 3, CNRS 1
     links:
-      - label: Journal
-        url: https://doi.org/10.1007/s10683-024-09831-3
       - label: arXiv
         url: https://arxiv.org/abs/2308.00179
       - label: Pre-registration
         url: https://doi.org/10.17605/OSF.IO/ZAW64
-    pdf: ""
+        hide_from_cv: true
     abstract: >-
       Gallice and Monzón (2019) present a natural environment that sustains full
       co-operation in one-shot social dilemmas among a finite number of self-interested
@@ -103,18 +103,43 @@ papers:
       others' actions. Some subjects exhibited altruistic tendencies, while only a small
       minority engaged in free-riding behaviour.
 
+  - title: "Position Uncertainty in a Prisoner's Dilemma Game: An Experiment"
+    status: working
+    coauthors:
+      - Konstantinos Georgalos
+      - Sonali SenGupta
+    note: "**Submitted**"
+    ranking: ABS/AJG 3, CNRS 1
+    links:
+      - label: arXiv
+        url: https://arxiv.org/abs/2504.10441
+    abstract: >-
+      Gallice and Monzón (2019) present a natural environment that sustains full
+      cooperation in one-shot social dilemmas among a finite number of self-interested
+      agents. They demonstrate that in a sequential public goods game, where agents lack
+      knowledge of their position in the sequence but can observe some predecessors'
+      actions, full contribution emerges in equilibrium due to agents' incentive to induce
+      potential successors to follow suit. Furthermore, they show that this principle
+      extends to a number of social dilemmas, with the prominent example that of the
+      prisoner's dilemma. In this study, we experimentally test the theoretical predictions
+      of this model in a multi-player prisoner's dilemma environment, where subjects are not
+      aware of their position in the sequence and receive only partial information on past
+      cooperating actions. We test the predictions of the model, and through rigorous
+      structural econometric analysis, we test the descriptive capacity of the model against
+      alternative behavioural strategies, such as conditional cooperation, altruistic play
+      and free-riding behaviour. We find that the majority resorts to free-riding behaviour,
+      around 30% is classified as Gallice and Monzón (2019) types, followed by those with
+      social preference considerations and the unconditional altruists.
+
   - title: "Playing Against the Machine: Cooperation, Communication, and Strategy Heterogeneity in Repeated Prisoner's Dilemma"
     status: working
     coauthors:
       - Konstantinos Georgalos
-    url: ""
-    journal: ""
-    details: ""
-    note: Reject and Resubmit at *Experimental Economics*
+    note: "**Reject and Resubmit** at ***Experimental Economics***"
+    ranking: ABS/AJG 3, CNRS 1
     links:
       - label: arXiv
         url: https://arxiv.org/abs/2603.15852
-    pdf: ""
     abstract: >-
       This paper investigates how natural language communication with an AI agent affects
       human cooperative behaviour in indefinitely repeated Prisoner's Dilemma games. We
@@ -136,74 +161,37 @@ papers:
       human-AI setting is sustained through conditional rules rather than through the
       social bonds and mutual understanding that characterise human-human cooperation.
 
-  - title: "Position Uncertainty in a Prisoner's Dilemma Game: An Experiment"
-    status: working
+  - title: Elicitation Mechanism in Dynamic Games
+    status: progress
     coauthors:
       - Konstantinos Georgalos
-      - Sonali SenGupta
-    url: ""
-    journal: ""
-    details: ""
-    note: Under review
-    links:
-      - label: arXiv
-        url: https://arxiv.org/abs/2504.10441
-    pdf: ""
-    abstract: >-
-      Gallice and Monzón (2019) present a natural environment that sustains full
-      cooperation in one-shot social dilemmas among a finite number of self-interested
-      agents. They demonstrate that in a sequential public goods game, where agents lack
-      knowledge of their position in the sequence but can observe some predecessors'
-      actions, full contribution emerges in equilibrium due to agents' incentive to induce
-      potential successors to follow suit. Furthermore, they show that this principle
-      extends to a number of social dilemmas, with the prominent example that of the
-      prisoner's dilemma. In this study, we experimentally test the theoretical predictions
-      of this model in a multi-player prisoner's dilemma environment, where subjects are not
-      aware of their position in the sequence and receive only partial information on past
-      cooperating actions. We test the predictions of the model, and through rigorous
-      structural econometric analysis, we test the descriptive capacity of the model against
-      alternative behavioural strategies, such as conditional cooperation, altruistic play
-      and free-riding behaviour. We find that the majority resorts to free-riding behaviour,
-      around 30% is classified as Gallice and Monzón (2019) types, followed by those with
-      social preference considerations and the unconditional altruists.
 
   - title: Equilibria in Budget Games with Dissatisfaction Cost
-    status: working
+    status: progress
     coauthors:
       - Jorge Bruno
       - Trivikram Dokka
       - Sonali SenGupta
-    url: ""
-    journal: ""
-    details: ""
     note: New version coming soon! Previous version on arXiv and SSRN.
     links:
       - label: arXiv
         url: https://arxiv.org/abs/2210.15035
       - label: SSRN
         url: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4260879
-    pdf: ""
-    abstract: ""
 
-  - title: Elicitation Mechanism in Dynamic Games
-    status: progress
-    coauthors:
-      - Konstantinos Georgalos
-
-  - title: Data-driven online scheduling of EV home charging
+  - title: Data-Driven Online Scheduling of Home Electric Vehicle Charging
     status: progress
     coauthors:
       - Trivikram Dokka
 
-  - title: Tax Evasion, Embezzlement and Public Good Provision
+  - title: "Conflict and Land Use: Evidence from Afghanistan"
     status: progress
     coauthors:
-      - Alexander Matros
-      - Sonali SenGupta
+      - M. Pilato
+      - H. Fazly
 
-  - title: Stronger Bounds for Effort and Welfare Maximizing Equilibria in Network Public Good Games
+  - title: Conflict and the Crop Portfolio in Afghanistan
     status: progress
     coauthors:
-      - Jorge Bruno
-      - Trivikram Dokka
-      - Sonali SenGupta
+      - H. Fazly
+      - R. Gunton

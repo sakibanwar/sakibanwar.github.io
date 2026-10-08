@@ -1,6 +1,6 @@
 # Pages CMS configuration (https://pagescms.org).
 # This file defines the editing forms you see at https://app.pagescms.org.
-# You do not need to touch it to update your site.
+# Every save rebuilds BOTH the website and the PDF CV (about 3 minutes).
 
 media:
   input: assets/uploads
@@ -15,14 +15,14 @@ content:
     fields:
       - name: interests
         label: Research interests
-        description: Shown in the banner at the top of the Research page.
+        description: Tags in the Research page banner (website only).
         type: string
         list: true
       - name: papers
         label: Papers
         description: >-
-          Status decides the section: Published, Working paper or Work in progress.
-          Drag papers to change their order on the page.
+          Used on the Research page AND in the PDF CV. Status decides the section.
+          Drag papers to reorder them.
         type: object
         list:
           collapsible:
@@ -47,12 +47,12 @@ content:
                   label: Work in progress
           - name: coauthors
             label: Co-authors
-            description: One name per line. Names that match the Co-authors list are linked automatically.
+            description: Full names. The CV shortens them to initials (K. Georgalos) automatically.
             type: string
             list: true
           - name: url
-            label: Title link
-            description: Where the paper title links to (journal page, DOI or arXiv). Optional.
+            label: Main link
+            description: Journal page or DOI. The website shows a Journal/Paper button; the CV prints [Link].
             type: string
           - name: journal
             label: Journal
@@ -64,11 +64,15 @@ content:
             type: string
           - name: note
             label: Status note
-            description: e.g. Under review, or Reject and Resubmit at *Experimental Economics* (text between stars becomes italic).
+            description: e.g. **Submitted** or **Reject and Resubmit** at ***Experimental Economics*** (**bold**, *italic*)
+            type: string
+          - name: ranking
+            label: Journal ranking (PDF CV only)
+            description: e.g. ABS/AJG 3, CNRS 1
             type: string
           - name: links
-            label: Buttons
-            description: Small buttons under the paper, e.g. arXiv, SSRN, Slides, Data, Pre-registration.
+            label: Other links
+            description: arXiv, SSRN, slides, data, pre-registration…
             type: object
             list: true
             fields:
@@ -78,26 +82,151 @@ content:
               - name: url
                 label: Link
                 type: string
+              - name: hide_from_cv
+                label: Hide from PDF CV
+                type: boolean
+              - name: hide_from_website
+                label: Hide from website
+                type: boolean
           - name: pdf
-            label: PDF upload
-            description: Optional. Adds a PDF button.
+            label: PDF upload (website)
+            description: Optional. Adds a PDF button on the website.
             type: file
             options:
               extensions: [pdf]
           - name: abstract
-            label: Abstract
-            description: Optional. Hidden behind an Abstract button on the page.
+            label: Abstract (website)
             type: text
+          - name: hide_from_cv
+            label: Hide from PDF CV
+            type: boolean
+          - name: hide_from_website
+            label: Hide from website
+            type: boolean
 
-  - name: people
-    label: Co-authors
+  - name: talks
+    label: Talks & seminars
     type: file
-    path: _data/people.yml
+    path: _data/talks.yml
     format: yaml
     fields:
-      - name: people
-        label: Co-authors
-        description: Each co-author's website. Used to link names on the Research page.
+      - name: talks
+        label: Talks
+        description: Newest first. Website groups them by year; the CV splits seminars from conferences.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{year} · {event}"
+        fields:
+          - name: type
+            label: Type
+            type: select
+            required: true
+            options:
+              values:
+                - name: conference
+                  label: Conference
+                - name: seminar
+                  label: Seminar
+          - name: year
+            label: Year
+            type: number
+            required: true
+          - name: month
+            label: Month
+            type: select
+            options:
+              values: [January, February, March, April, May, June, July, August, September, October, November, December]
+          - name: event
+            label: Event or seminar series
+            type: string
+            required: true
+          - name: location
+            label: Location / institution
+            type: string
+          - name: paper
+            label: Paper presented (website)
+            type: string
+          - name: note
+            label: Note (website), e.g. Poster
+            type: string
+          - name: hide_from_cv
+            label: Hide from PDF CV
+            type: boolean
+          - name: hide_from_website
+            label: Hide from website
+            type: boolean
+
+  - name: teaching
+    label: Teaching
+    type: file
+    path: _data/teaching.yml
+    format: yaml
+    fields:
+      - name: interests
+        label: Teaching interests
+        description: Teaching page banner and the CV's Teaching Interests line.
+        type: string
+        list: true
+      - name: qualifications
+        label: Qualifications and training
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            type: string
+            required: true
+          - name: organisation
+            type: string
+          - name: date
+            type: string
+          - name: url
+            label: Link (e.g. certificate)
+            type: string
+          - name: plain
+            label: Normal weight (not bold)
+            type: boolean
+          - name: hide_from_cv
+            label: Hide from PDF CV
+            type: boolean
+          - name: hide_from_website
+            label: Hide from website
+            type: boolean
+      - name: textbooks_intro
+        label: Textbooks introduction (website)
+        type: text
+      - name: textbooks
+        label: Open-access textbooks
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            type: string
+            required: true
+          - name: url
+            label: Link
+            type: string
+          - name: cv_note
+            label: CV note, e.g. Jupyter Book (open access)
+            type: string
+          - name: description
+            label: Description (website)
+            type: text
+          - name: hide_from_cv
+            label: Hide from PDF CV
+            type: boolean
+          - name: hide_from_website
+            label: Hide from website
+            type: boolean
+      - name: places
+        label: Where you teach / taught
         type: object
         list:
           collapsible:
@@ -105,12 +234,258 @@ content:
             summary: "{name}"
         fields:
           - name: name
-            label: Name (exactly as written on papers)
+            label: Institution
             type: string
             required: true
-          - name: url
-            label: Website
+          - name: note
+            label: Note after the name (PDF CV only)
+            description: e.g. Senior Lecturer, Sep 2026–Present; classes of 15–30
             type: string
+          - name: compact
+            label: One-line module list in the CV
+            type: boolean
+          - name: groups
+            label: Module lists
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - name: title
+                label: Heading, e.g. Current Modules
+                type: string
+              - name: modules
+                label: Modules
+                type: object
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{name}"
+                fields:
+                  - name: name
+                    label: Module
+                    type: string
+                    required: true
+                  - name: level
+                    label: Level, e.g. 2nd Year
+                    type: string
+                  - name: tools
+                    label: Tools, e.g. Python, Colab
+                    type: string
+                  - name: dates
+                    label: Dates, e.g. Aug 2025–Present
+                    type: string
+                  - name: link_label
+                    label: Button text (website), e.g. Python notes
+                    type: string
+                  - name: link_url
+                    label: Button link (website)
+                    type: string
+                  - name: hide_from_cv
+                    label: Hide from PDF CV
+                    type: boolean
+                  - name: hide_from_website
+                    label: Hide from website
+                    type: boolean
+          - name: footnote
+            label: Paragraph after the modules (PDF CV only)
+            type: text
+          - name: hide_from_cv
+            label: Hide from PDF CV
+            type: boolean
+          - name: hide_from_website
+            label: Hide from website
+            type: boolean
+      - name: outreach
+        label: Outreach and public engagement (PDF CV only)
+        type: text
+
+  - name: cv
+    label: CV sections
+    type: file
+    path: _data/cv.yml
+    format: yaml
+    fields:
+      - name: sections
+        label: Sections
+        description: >-
+          In the order they appear in the PDF CV and on the website's CV page. Use Entries for
+          jobs, degrees, grants; Lines for "Label: text" rows; Text for a paragraph. Research,
+          Teaching and Talks fill themselves in from their own forms.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Heading
+            type: string
+            required: true
+          - name: type
+            label: Type
+            type: select
+            required: true
+            options:
+              values:
+                - name: entries
+                  label: Entries
+                - name: lines
+                  label: Lines
+                - name: text
+                  label: Text
+                - name: research
+                  label: Research papers (automatic)
+                - name: teaching
+                  label: Teaching (automatic)
+                - name: talks
+                  label: Talks (automatic)
+          - name: hide_from_cv
+            label: Hide from PDF CV
+            type: boolean
+          - name: hide_from_website
+            label: Hide from website
+            type: boolean
+          - name: entries
+            label: Entries (type Entries)
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title} {date}"
+            fields:
+              - name: title
+                type: string
+                required: true
+              - name: extra
+                label: After the title, e.g. (£3,000) or (part-time)
+                type: string
+              - name: organisation
+                type: string
+              - name: tag
+                label: Small grey note, e.g. Oversee 25+ doctoral students
+                type: string
+              - name: date
+                type: string
+              - name: details
+                description: Shown under the entry. One line per row. **bold**, *italic*, [link](https://…)
+                type: text
+              - name: website_details
+                label: Extra details (website only)
+                type: text
+              - name: url
+                label: Link
+                type: string
+              - name: plain
+                label: Normal weight (not bold)
+                type: boolean
+              - name: hide_from_cv
+                label: Hide from PDF CV
+                type: boolean
+              - name: hide_from_website
+                label: Hide from website
+                type: boolean
+          - name: lines
+            label: Lines (type Lines)
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{label}"
+            fields:
+              - name: label
+                type: string
+                required: true
+              - name: extra
+                label: After the label, e.g. (6, Economics)
+                type: string
+              - name: text
+                type: text
+              - name: space_before
+                label: Extra space before this line (PDF)
+                type: boolean
+              - name: hide_from_cv
+                label: Hide from PDF CV
+                type: boolean
+              - name: hide_from_website
+                label: Hide from website
+                type: boolean
+          - name: text
+            label: Text (type Text)
+            type: text
+          - name: plain_titles
+            label: All entry titles in normal weight
+            type: boolean
+          - name: bullets
+            label: Bulleted lines (PDF)
+            type: boolean
+          - name: publications_oldest_first
+            label: PDF lists publications oldest first (Research section only)
+            type: boolean
+          - name: needspace
+            type: number
+            hidden: true
+
+  - name: profile
+    label: Profile & contact
+    type: file
+    path: _data/profile.yml
+    format: yaml
+    fields:
+      - name: name
+        label: Name on the website
+        type: string
+        required: true
+      - name: full_name
+        label: Full name (PDF CV header)
+        type: string
+      - name: position
+        type: string
+      - name: affiliation
+        type: string
+      - name: photo
+        type: image
+      - name: email
+        label: Work email
+        type: string
+      - name: email_personal
+        label: Personal email (PDF CV only)
+        type: string
+      - name: phone
+        description: UK format, e.g. 01962 675219. The CV shows +44 (0)…
+        type: string
+      - name: website
+        type: string
+      - name: linkedin
+        label: LinkedIn URL (website)
+        type: string
+      - name: github
+        label: GitHub URL
+        type: string
+      - name: google_scholar
+        label: Google Scholar URL
+        type: string
+      - name: orcid
+        label: ORCID URL
+        type: string
+      - name: address
+        label: Address (website)
+        description: One line per row.
+        type: text
+      - name: cv_location
+        label: Location line (PDF CV header)
+        type: string
+      - name: map_query
+        label: Map location (website)
+        description: What to search on Google Maps. Leave blank to hide the map.
+        type: string
+      - name: affiliation_logo
+        label: University logo
+        type: image
+      - name: affiliation_url
+        label: University website
+        type: string
 
   - name: home
     label: Home page bio
@@ -131,208 +506,25 @@ content:
           format: markdown
           media: false
 
-  - name: profile
-    label: Profile & contact
+  - name: people
+    label: Co-author websites
     type: file
-    path: _data/profile.yml
+    path: _data/people.yml
     format: yaml
     fields:
-      - name: name
-        label: Name
-        type: string
-        required: true
-      - name: position
-        label: Position
-        type: string
-      - name: affiliation
-        label: Affiliation
-        type: string
-      - name: photo
-        label: Photo
-        type: image
-      - name: cv_pdf
-        label: CV (upload a PDF)
-        description: If you upload a PDF here, the CV buttons use it instead of the link below.
-        type: file
-        options:
-          extensions: [pdf]
-      - name: cv_url
-        label: CV (link)
-        description: e.g. a Google Drive link. Used only when no PDF is uploaded above.
-        type: string
-      - name: email
-        label: Email
-        type: string
-      - name: linkedin
-        label: LinkedIn URL
-        type: string
-      - name: github
-        label: GitHub URL
-        type: string
-      - name: google_scholar
-        label: Google Scholar URL
-        type: string
-      - name: orcid
-        label: ORCID URL
-        type: string
-      - name: address
-        label: Address
-        description: One line per row.
-        type: text
-      - name: phone
-        label: Phone
-        type: string
-      - name: map_query
-        label: Map location
-        description: What to search on Google Maps. Leave blank to hide the map.
-        type: string
-      - name: affiliation_logo
-        label: University logo
-        type: image
-      - name: affiliation_url
-        label: University website
-        type: string
-
-  - name: teaching
-    label: Teaching
-    type: file
-    path: _data/teaching.yml
-    format: yaml
-    fields:
-      - name: interests
-        label: Teaching interests
-        type: string
-        list: true
-      - name: textbooks_intro
-        label: Textbooks introduction
-        type: text
-      - name: textbooks
-        label: Open-access textbooks
+      - name: people
+        label: Co-authors
+        description: Names that match a paper's co-author are linked on the website.
         type: object
         list:
           collapsible:
             collapsed: true
-            summary: "{title}"
+            summary: "{name}"
         fields:
-          - name: title
+          - name: name
+            label: Name (exactly as written on papers)
             type: string
             required: true
           - name: url
-            label: Link
+            label: Website
             type: string
-          - name: description
-            type: text
-      - name: groups
-        label: Module lists
-        description: Each list gets its own heading, e.g. "Currently teaching at the University of Winchester".
-        type: object
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{title}"
-        fields:
-          - name: title
-            label: Heading
-            type: string
-            required: true
-          - name: courses
-            label: Modules
-            type: object
-            list:
-              collapsible:
-                collapsed: true
-                summary: "{name}"
-            fields:
-              - name: name
-                label: Module name
-                type: string
-                required: true
-              - name: details
-                label: Details
-                description: e.g. 2nd year, 2021 – present
-                type: string
-              - name: link_label
-                label: Button text
-                description: e.g. Python notes
-                type: string
-              - name: link_url
-                label: Button link
-                type: string
-
-  - name: talks
-    label: Talks
-    type: file
-    path: _data/talks.yml
-    format: yaml
-    fields:
-      - name: talks
-        label: Talks
-        description: Grouped by year on the page, newest year first.
-        type: object
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{year} · {event}"
-        fields:
-          - name: year
-            label: Year
-            type: number
-            required: true
-          - name: event
-            label: Event or seminar
-            type: string
-            required: true
-          - name: location
-            label: Location / institution
-            type: string
-          - name: month
-            label: Month
-            type: string
-          - name: paper
-            label: Paper presented
-            description: Optional.
-            type: string
-          - name: note
-            label: Note
-            description: Optional, e.g. Poster or Online.
-            type: string
-
-  - name: cv
-    label: CV page
-    type: file
-    path: _data/cv.yml
-    format: yaml
-    fields:
-      - name: sections
-        label: Sections
-        type: object
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{title}"
-        fields:
-          - name: title
-            label: Section heading
-            type: string
-            required: true
-          - name: entries
-            label: Entries
-            type: object
-            list:
-              collapsible:
-                collapsed: true
-                summary: "{title}"
-            fields:
-              - name: title
-                type: string
-                required: true
-              - name: organisation
-                type: string
-              - name: date
-                type: string
-              - name: details
-                description: Optional. Markdown allowed.
-                type: text
-              - name: url
-                label: Link
-                type: string

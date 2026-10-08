@@ -1,34 +1,58 @@
-# Each section becomes a heading on the CV page.
-# Every entry needs a title; organisation, date, details and url are optional.
-# "details" understands Markdown, e.g. *italics* or [a link](https://example.com).
+# The PDF CV and the website's CV page are both built from this file, in this order.
+#
+# Section types
+#   entries    a list of items: title, extra, organisation, tag, date, details
+#   lines      "Label: text" rows (bullets: true puts them in a bulleted list)
+#   text       one paragraph
+#   research   filled in automatically from _data/research.yml
+#   teaching   filled in automatically from _data/teaching.yml
+#   talks      filled in automatically from _data/talks.yml
+#
+# Show / hide
+#   hide_from_website: true   PDF only
+#   hide_from_cv: true        website only
+#   (works on whole sections and on single entries)
+#   plain_titles: true        titles in normal weight instead of bold (plain: true for one entry)
+#
+# Text fields understand **bold**, *italic* and [links](https://example.com).
+# "details" can have several lines; each becomes its own line.
+# "website_details" is an extra line shown only on the website.
+# "needspace" (PDF layout): start a new page if fewer than this many lines are left.
 sections:
   - title: Employment
+    type: entries
     entries:
       - title: Senior Lecturer
         organisation: Faculty of Business and Digital Technology, University of Winchester
-        date: September 2026 – present
+        date: Sep 2026–Present
       - title: Lecturer
         organisation: Faculty of Business and Digital Technology, University of Winchester
-        date: August 2021 – August 2026
+        date: Aug 2021–Aug 2026
       - title: Teaching Associate
-        organisation: Department of Economics, Lancaster University Management School
-        date: November 2020 – July 2021
-      - title: Research Assistant (part-time)
-        organisation: Department of Management Science, Lancaster University Management School
-        date: September 2020 – January 2021
-        details: >-
-          EPSRC funded project "Understanding and Modelling Electric Vehicle (EV) Charging
-          Behaviour Using Choice Modelling"
+        organisation: Lancaster University Management School
+        date: Nov 2020–Jul 2021
+      - title: Research Assistant
+        extra: (part-time)
+        organisation: Lancaster University
+        date: Sep 2020–Jan 2021
+        details: |-
+          EPSRC funded project (**DecarboN8**): *"Understanding and Modelling Electric Vehicle (EV) Charging Behaviour Using Choice Modelling"*
+          PI: Trivikram Dokka, Department of Management Science, Lancaster University
+      - title: Graduate Teaching Assistant
+        organisation: Lancaster University Management School
+        date: Oct 2016–Jul 2020
+      - title: Tutor
+        organisation: Mathematics and Statistics Hub (MASH), Lancaster University
+        date: Oct 2019–Apr 2020
 
   - title: Education
+    type: entries
     entries:
       - title: PhD Economics
         organisation: Lancaster University
         date: "2020"
-        details: >-
-          Thesis: *Essays in Public Economics* (passed with no corrections)<br>
-          Advisors: Professor Alexander Matros & Dr Sonali Sen Gupta<br>
-          Examiners: Prof. Siddhartha Bandyopadhyay & Dr Konstantinos Georgalos
+        details: "*Thesis*: Essays in Public Economics; *Advisors*: Prof. Alexander Matros & Dr. Sonali SenGupta"
+        website_details: "Passed with no corrections. Examiners: Prof. Siddhartha Bandyopadhyay & Dr Konstantinos Georgalos"
       - title: MRes Economics
         organisation: University of Essex
         date: "2016"
@@ -39,42 +63,163 @@ sections:
         organisation: University of Nottingham
         date: "2013"
 
-  - title: Teaching Qualifications and Training
-    entries:
-      - title: Fellow of the Higher Education Academy
-        date: "2023"
-        url: https://drive.google.com/file/d/1Rphd3Wi2-F0bHInoFGKzJ4fueryXP1GA/view?usp=sharing
-      - title: PGCert in Learning and Teaching
-        organisation: University of Winchester
-        date: "2023"
-      - title: GTA Workshop
-        organisation: University of Oxford
-        date: September 2016
-      - title: Introduction to Teaching for GTAs
-        organisation: Lancaster University
-        date: October 2016
+  - title: Research Papers
+    type: research
+    # The website lists newest first; the PDF lists publications oldest first.
+    publications_oldest_first: true
 
-  - title: Grants, Awards and Competitions
+  - title: Grants and Awards
+    needspace: 12
+    type: entries
     entries:
-      - title: Semi-finalist, Wellcome Trust Data Science Ideathon
+      - title: Internal REF Funding
+        extra: (£3,000)
+        organisation: University of Winchester
+        date: "2026"
+        details: >-
+          Project: "Strategy Heterogeneity in Human-AI Interactions: An Experiment"
+          (additional treatments) (CI: K. Georgalos)
+      - title: Internal REF Funding
+        extra: (£2,850)
+        organisation: University of Winchester
+        date: "2024"
+        details: >-
+          Project: "Strategy Heterogeneity in Human-AI Interactions: An Experiment"
+          (CI: K. Georgalos)
+      - title: Small Research Grant
+        extra: (£1,600)
+        organisation: Department of Economics, Lancaster University
+        date: "2024"
+        details: >-
+          Project: "Position Uncertainty in a Prisoner's Dilemma Game: An Experiment"
+          (PI: K. Georgalos)
+      - title: Semi-finalist
+        organisation: Wellcome Trust Data Science Ideathon
         date: "2023"
         url: https://wellcome.org/grant-funding/schemes/ideathon
-      - title: Small Research Grant (£648)
+        details: >-
+          Team competition pitching a research idea for awards up to £100,000; Climate and
+          Health Challenge
+      - title: Travel & Subsistence Researcher Development Fund
+        extra: (£224)
+        organisation: University of Winchester
+        date: "2023"
+        details: Research visit to Queen's University Belfast; Budget Games project
+      - title: RKE Covid Recovery Fund
+        extra: (£1,980)
+        organisation: University of Winchester
+        date: "2022"
+        details: Research visit to Queen's University Belfast; Budget Games project
+      - title: Winchester Research Apprenticeship Programme
+        extra: (£440)
+        date: "2022"
+        details: >-
+          Project: "Guilt Aversion and Procrastination"
+      - title: Small Research Grant
+        extra: (£648)
         organisation: Department of Economics, Lancaster University
         date: "2020"
+        details: >-
+          Project: "Position Uncertainty in a Sequential Public Goods Game: An Experiment"
       - title: Departmental Studentship Award
         organisation: Lancaster University
-        date: 2016 – 2019
+        date: 2016–2019
+        details: >-
+          Full overseas tuition fee waiver (£13,590) and maintenance stipend of £14,296 per
+          annum, for three years
       - title: Nottingham Advantage Award
         organisation: University of Nottingham
         date: "2013"
+        hide_from_cv: true
       - title: Duke of Edinburgh's Award, Bronze Level
         organisation: The Duke of Edinburgh's International Award Foundation
         date: "2009"
+        hide_from_cv: true
+
+  - title: Teaching
+    needspace: 6
+    type: teaching
+
+  - title: Skills and Professional Service
+    needspace: 6
+    type: lines
+    hide_from_website: true
+    lines:
+      - label: Programming
+        text: Python (data analytics, oTree for experiments), R (econometrics, data visualisation), Stata, MATLAB, Mathematica
+      - label: Web/Software
+        text: oTree, Django, HTML, Google Colab, Jupyter Book, Streamlit, Power BI
+      - label: Other
+        text: LaTeX, Microsoft Office
+      - label: Membership
+        text: Behavioural and Experimental Economists working in the UK (BEE UK)
+        space_before: true
+      - label: Refereeing
+        text: "*Journal of Economic Behavior & Organization*, *Southern Economic Journal*, *Frontiers in Behavioral Economics*, *Communications Psychology*"
 
   - title: Skills
+    type: lines
+    hide_from_cv: true
+    lines:
+      - label: Computing
+        text: Python, R, oTree, Django, Mathematica, Stata, MATLAB, LaTeX, HTML
+      - label: Languages
+        text: English (fluent), Bengali (native)
+
+  - title: Supervision
+    needspace: 5
+    type: lines
+    bullets: true
+    hide_from_website: true
+    lines:
+      - label: PhD
+        text: >-
+          Hamid Fazly (Economics; Winchester, supervisor from 2024; submitted June 2026, passed
+          viva with corrections), Yvette Obika (International Business; Winchester,
+          2024–Present)
+      - label: Masters Dissertations
+        extra: >-
+          (6, all on business programmes: International Business Management, International
+          Financial Management, Marketing)
+        text: >-
+          Baljinder Singh (2023), Dipalee Ravikumar Patel (2023), Sarvjeet Singh (2023),
+          Madeline Rush (2024), Georgiet Nana Akua Bonsu (2025), Buse Abohorlu (2025)
+      - label: Undergraduate Dissertations
+        extra: (7, Economics and Mathematics)
+        text: >-
+          Joby Page (2023), Michael Dela Fuente (2023), Lucy Welby (2024), George Asprey (2025),
+          Benjamin McLean (2025), Thomas Reeve (2025), Vedika Joshi (2026)
+
+  - title: Administrative Responsibilities
+    type: entries
+    plain_titles: true
     entries:
-      - title: Computing
-        details: Python, R, oTree, Django, Mathematica, Stata, MATLAB, LaTeX, HTML
-      - title: Languages
-        details: English (fluent), Bengali (native)
+      - title: BDT Faculty Postgraduate Research Lead
+        tag: Oversee 25+ doctoral students
+        date: Jan 2024–Present
+      - title: Personal Academic Tutor
+        date: Sep 2022–Present
+      - title: Academic Integrity Officer
+        date: Aug 2021–Present
+      - title: Faculty Research Seminar Organiser
+        date: Sep 2025–Present
+      - title: Economics PhD Seminar Organiser
+        organisation: Lancaster University
+        date: 2018–2019
+      - title: PhD Student Representative
+        organisation: Lancaster University
+        date: 2016–2017
+      - title: Mentor to 1st Year PhD Student
+        organisation: Lancaster University
+        date: 2017–2018
+
+  - title: Seminars and Conference Presentations
+    needspace: 8
+    type: talks
+
+  - title: Personal
+    type: text
+    hide_from_website: true
+    text: >-
+      Right to work in the UK (Indefinite Leave to Remain); no sponsorship required.
+      Bangladeshi citizen.

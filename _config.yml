@@ -26,6 +26,10 @@ nav:
   - title: Talks
     url: /talks/
 
+# Where the PDF CV ends up. It is generated from the _data files on every update
+# (see .github/workflows/build.yml), so there is nothing to upload by hand.
+cv_pdf: /assets/cv/Sakib_Anwar_CV.pdf
+
 # Used by jekyll-seo-tag for search engines and link previews
 author: Sakib Anwar
 logo: /assets/img/profile.jpg
@@ -42,6 +46,7 @@ plugins:
   - jekyll-sitemap
 
 exclude:
+  - CV/
   - README.md
   - Gemfile
   - Gemfile.lock

@@ -1,0 +1,67 @@
+# Runs on every change to the repository (including saves from Pages CMS):
+#   1. builds the PDF CV from the _data files
+#   2. builds the website with that PDF included
+#   3. publishes both together
+# If any step fails, the live site stays as it was and GitHub emails you.
+name: Build website and CV
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Write the CV's LaTeX file from the data
+        run: |
+          pip install --quiet pyyaml jinja2
+          python CV/build_cv.py --tex-only
+
+      - name: Compile the CV
+        uses: xu-cheng/latex-action@v4
+        with:
+          working_directory: CV/build
+          root_file: cv.tex
+          latexmk_use_lualatex: true
+
+      - name: Put the PDF on the website
+        run: |
+          mkdir -p assets/cv
+          cp CV/build/cv.pdf assets/cv/Sakib_Anwar_CV.pdf
+
+      - uses: actions/configure-pages@v6
+
+      - name: Build the website
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+
+      - uses: actions/upload-pages-artifact@v5
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

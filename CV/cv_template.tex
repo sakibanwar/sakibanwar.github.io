@@ -1,0 +1,254 @@
+((= ======================================================================
+    Template for the PDF CV. CV/build_cv.py fills it in from the _data/*.yml
+    files. Edit the data files to change the content; edit this file only to
+    change the layout.
+
+    ((( value )))    inserts a value
+    ((* ... *))      logic (if / for)
+    ====================================================================== =))
+\documentclass[a4paper,10pt]{article}
+
+% Font and Unicode support for LuaLaTeX
+\usepackage{fontspec}
+\usepackage{unicode-math}
+
+% Page layout
+\usepackage[top=2cm, bottom=2cm, left=1.8cm, right=1.8cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{needspace}
+
+% Icons and colors
+\usepackage{fontawesome5}
+\usepackage{academicons}
+\usepackage[dvipsnames]{xcolor}
+
+% Formatting
+\usepackage{titlesec}
+\usepackage{hyperref}
+
+% Define custom colors
+\definecolor{headercolor}{RGB}{40,40,40}
+\definecolor{sectioncolor}{RGB}{30,60,90}
+\definecolor{linkcolor}{RGB}{0,0,139}
+\definecolor{rankteal}{RGB}{0,92,92}
+\definecolor{accentgray}{RGB}{100,100,100}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks = true,
+    urlcolor = black,
+    linkcolor = blue,
+    citecolor = blue,
+    anchorcolor = blue,
+    pdfauthor = {((( profile.full_name | tex )))},
+    pdftitle = {Curriculum Vitae}
+}
+
+\def\name{((( profile.full_name | tex )))}
+
+% Brackets around an argument, e.g. \paren{with K.\ Georgalos}
+\newcommand{\paren}[1]{(#1)}
+% Small blue link label, e.g. [arXiv]
+\newcommand{\cvlink}[2]{\href{#1}{{\footnotesize\textcolor{blue}{[#2]}}}}
+% Small grey note, e.g. [Python, Colab]
+\newcommand{\cvtag}[1]{{\footnotesize\textcolor{accentgray}{[#1]}}}
+
+% Custom section styling -- coloured with a rule
+\titleformat{\section}
+  {\large\bfseries\scshape\color{sectioncolor}}
+  {}{0em}{}[\color{sectioncolor}\titlerule]
+\titlespacing{\section}{0pt}{11pt}{6pt}
+
+% Custom subsection styling
+\titleformat{\subsection}
+  {\normalsize\bfseries\scshape\color{headercolor}}
+  {}{0em}{}
+\titlespacing{\subsection}{0pt}{7pt}{3pt}
+
+\titleformat{\subsubsection}
+  {\normalsize\itshape\color{accentgray}}
+  {}
+  {0em}
+  {}
+\titlespacing{\subsubsection}{0pt}{3pt}{2pt}
+
+% Header setup
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{{\footnotesize\color{accentgray}\thepage}}
+
+% Don't indent paragraphs
+\setlength\parindent{0em}
+
+% Slightly increase line spacing for readability
+\linespread{1.10}
+
+% Itemize spacing
+\setlist[itemize]{leftmargin=1.5em, itemsep=0.35em, parsep=0.05em, topsep=4pt}
+
+((* macro entry_list(entries, plain_titles=false) *))
+\begin{itemize}
+((* for e in entries *))
+((* set bold = not (e.plain or plain_titles) *))
+    \item ((* if e.url *))\href{((( e.url | url )))}{((* endif *))((* if bold *))\textbf{((( e.title | md )))}((* else *))((( e.title | md )))((* endif *))((* if e.url *))}((* endif *))((* if e.extra *)) ((( e.extra | md )))((* endif *))((* if e.organisation *)), ((( e.organisation | md )))((* endif *))((* if e.tag *)) \cvtag{((( e.tag | md )))}((* endif *))((* if e.date *)) \hfill ((( e.date | tex )))((* endif *))((* if e.details *))\\
+    ((( e.details | md_lines )))((* endif *))
+
+((* endfor *))
+\end{itemize}
+((* endmacro *))
+
+\begin{document}
+
+% ============================================================
+% HEADER
+% ============================================================
+\begin{center}
+    {\LARGE\bfseries\scshape\color{headercolor} \name}\\[6pt]
+    {\small
+((* for row in header_rows *))
+    ((( row | join('\n    \\;\\;$\\cdot$\\;\\;\n    ') )))
+((* if not loop.last *))
+    \\[3pt]
+((* endif *))
+((* endfor *))
+    }
+\end{center}
+
+\vspace{-0.5em}
+
+((* for section in sections *))
+% ============================================================
+% ((( section.title | upper )))
+% ============================================================
+((* if section.needspace *))
+\Needspace{((( section.needspace )))\baselineskip}
+((* endif *))
+\section*{((( section.title | tex )))}
+((* if section.type == 'entries' *))
+((( entry_list(section.entries, section.plain_titles) )))
+((* elif section.type == 'lines' *))
+((* if section.bullets *))
+\begin{itemize}[itemsep=0.3em]
+((* for l in section.lines *))
+    \item \textbf{((( l.label | md )))}((* if l.extra *)) ((( l.extra | md )))((* endif *)): ((( l.text | md )))
+
+((* endfor *))
+\end{itemize}
+((* else *))
+((* for l in section.lines *))
+\textbf{((( l.label | md )))}((* if l.extra *)) ((( l.extra | md )))((* endif *)): ((( l.text | md )))((* if not loop.last *))\\[((( '6pt' if loop.nextitem.space_before else '2pt' )))]((* endif *))
+
+((* endfor *))
+((* endif *))
+((* elif section.type == 'text' *))
+((( section.text | md )))
+((* elif section.type == 'research' *))
+((* for group in research *))
+
+\subsection*{((( group.title | tex )))}
+((* if group.status == 'progress' *))
+\begin{itemize}[itemsep=0.1em, topsep=2pt]
+((* for p in group.papers *))
+    \item ((( p.title | tex )))((* if p.coauthors *)) \textit{\paren{with ((( p.coauthors | coauthors )))}}((* endif *))
+
+((* endfor *))
+\end{itemize}
+((* else *))
+\begin{itemize}
+((* for p in group.papers *))
+    \item ((( p.title | tex )))((* if p.coauthors *)) \textit{\paren{with ((( p.coauthors | coauthors )))}}((* endif *))((* if p.journal *)),
+    \textbf{\textit{((( p.journal | tex )))}}((* if p.details *)) ((( p.details | tex )))((* endif *))((* endif *))
+
+((* if p.note *))
+    \textit{\paren{((( p.note | md )))}}
+((* endif *))
+((* if p.ranking *))
+    {\footnotesize\textcolor{rankteal}{\textbf{[((( p.ranking | tex )))]}}}
+((* endif *))
+((* if p.url *))
+    \cvlink{((( p.url | url )))}{Link}
+((* endif *))
+((* for l in p.links if l.url and not l.hide_from_cv *))
+    \cvlink{((( l.url | url )))}{((( l.label | tex )))}
+((* endfor *))
+
+((* endfor *))
+\end{itemize}
+((* endif *))
+((* endfor *))
+((* elif section.type == 'teaching' *))
+
+\subsection*{Qualifications and Training}
+((( entry_list(teaching.qualifications) )))
+
+\subsection*{Teaching Interests}
+((( teaching.interests | map('tex') | join(', ') )))
+
+((* if teaching.textbooks *))
+\subsection*{Open-Access Teaching Materials}
+\begin{itemize}
+((* for b in teaching.textbooks *))
+    \item \textit{((( b.title | tex )))}((* if b.cv_note *)), ((( b.cv_note | md )))((* endif *))((* if b.url *)) \cvlink{((( b.url | url )))}{Link}((* endif *))
+
+((* endfor *))
+\end{itemize}
+((* endif *))
+
+\vspace{4pt}
+((* for place in teaching.places *))
+\subsection*{((( place.name | tex )))((* if place.note *)) \normalfont\textit{\paren{((( place.note | md )))}}((* endif *))}
+((* if place.compact *))
+((( place | compact_modules )))
+((* else *))
+((* for g in place.groups *))
+((* if not loop.first *))
+\vspace{-0.5em}
+((* endif *))
+((* if g.title *))
+\subsubsection*{((( g.title | tex )))}
+((* endif *))
+\begin{itemize}
+((* for m in g.modules *))
+    \item ((( m.name | md )))((* if m.level *)) \paren{((( m.level | tex )))}((* endif *))((* if m.tools *)) \cvtag{((( m.tools | tex )))}((* endif *))((* if m.dates *)) \hfill ((( m.dates | tex )))((* endif *))
+
+((* endfor *))
+\end{itemize}
+((* endfor *))
+((* endif *))
+((* if place.footnote *))
+
+\vspace{2pt}
+((( place.footnote | md )))
+((* endif *))
+
+((* endfor *))
+((* if teaching.outreach *))
+\subsection*{Outreach and Public Engagement}
+((( teaching.outreach | md )))
+((* endif *))
+((* elif section.type == 'talks' *))
+((* for group in talks *))
+
+\subsection*{((( group.title | tex )))}
+\begin{itemize}
+((* for t in group.talks *))
+    \item ((( t.event | md )))((* if t.location *)), ((( t.location | md )))((* endif *)) \hfill ((* if t.month *))((( t.month | mon ))) ((* endif *))((( t.year )))
+
+((* endfor *))
+\end{itemize}
+((* endfor *))
+((* endif *))
+
+((* endfor *))
+% Footer
+\vfill
+\begin{center}
+    \footnotesize\color{accentgray}
+    Last updated: \today
+\end{center}
+
+\end{document}

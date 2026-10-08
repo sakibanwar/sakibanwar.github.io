@@ -27,11 +27,14 @@
   {%- assign has_abstract = false -%}
   {%- if paper.abstract and paper.abstract != "" -%}{%- assign has_abstract = true -%}{%- endif -%}
   {%- capture links -%}
+    {%- if paper.url and paper.url != "" -%}
+      <a class="pill" href="{% include url.html u=paper.url %}">{% if paper.status == "published" %}Journal{% else %}Paper{% endif %}</a>
+    {%- endif -%}
     {%- if paper.pdf and paper.pdf != "" -%}
       <a class="pill" href="{% include url.html u=paper.pdf %}">PDF</a>
     {%- endif -%}
     {%- for link in paper.links -%}
-      {%- if link.url and link.url != "" -%}
+      {%- if link.url and link.url != "" and link.hide_from_website != true -%}
       <a class="pill" href="{% include url.html u=link.url %}">{{ link.label | default: "Link" }}</a>
       {%- endif -%}
     {%- endfor -%}

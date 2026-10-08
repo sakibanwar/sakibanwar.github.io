@@ -1,37 +1,48 @@
 ---
 layout: default
 ---
-{%- assign p = site.data.profile -%}
-{%- if p.cv_pdf and p.cv_pdf != "" -%}{%- assign cv = p.cv_pdf -%}{%- else -%}{%- assign cv = p.cv_url -%}{%- endif -%}
 <section class="page-banner">
   <div class="wrap narrow banner-row">
     <h1>{{ page.title }}</h1>
-    {%- if cv and cv != "" %}
-    <a class="btn-cv btn-inline" href="{% include url.html u=cv %}">Download my CV</a>
-    {%- endif %}
+    <a class="btn-cv btn-inline" href="{{ site.cv_pdf | relative_url }}">Download my CV</a>
   </div>
 </section>
 
 <div class="wrap narrow content">
-  {%- for section in site.data.cv.sections %}
+  {%- assign sections = site.data.cv.sections | where_exp: "s", "s.hide_from_website != true" -%}
+  {%- for section in sections %}
   <section>
     <h2>{{ section.title }}</h2>
-    {%- for e in section.entries %}
-    <div class="cv-entry">
-      <div class="cv-main">
-        <div class="cv-title">{% if e.url and e.url != "" %}<a href="{% include url.html u=e.url %}">{{ e.title }}</a>{% else %}{{ e.title }}{% endif %}</div>
-        {%- if e.organisation and e.organisation != "" %}
-        <div class="cv-org">{{ e.organisation }}</div>
-        {%- endif %}
-        {%- if e.details and e.details != "" %}
-        <div class="cv-details">{{ e.details | markdownify }}</div>
-        {%- endif %}
+
+    {%- case section.type %}
+    {%- when "entries" %}
+    {% include cv-entries.html entries=section.entries plain=section.plain_titles %}
+
+    {%- when "lines" %}
+    {%- assign lines = section.lines | where_exp: "l", "l.hide_from_website != true" %}
+    <dl class="cv-lines">
+      {%- for l in lines %}
+      <div>
+        <dt>{{ l.label }}{% if l.extra and l.extra != "" %} <span class="cv-extra">{{ l.extra }}</span>{% endif %}</dt>
+        <dd>{{ l.text | markdownify | remove: "<p>" | remove: "</p>" | strip }}</dd>
       </div>
-      {%- if e.date and e.date != "" %}
-      <div class="cv-date">{{ e.date }}</div>
-      {%- endif %}
-    </div>
-    {%- endfor %}
+      {%- endfor %}
+    </dl>
+
+    {%- when "text" %}
+    {{ section.text | markdownify }}
+
+    {%- when "research" %}
+    <p class="cv-pointer">Publications, working papers and work in progress, with abstracts: see the <a href="{{ '/research/' | relative_url }}">Research</a> page.</p>
+
+    {%- when "teaching" %}
+    <h3 class="group-title">Qualifications and Training</h3>
+    {% include cv-entries.html entries=site.data.teaching.qualifications %}
+    <p class="cv-pointer">Modules and open-access teaching materials: see the <a href="{{ '/teaching/' | relative_url }}">Teaching</a> page.</p>
+
+    {%- when "talks" %}
+    <p class="cv-pointer">See the <a href="{{ '/talks/' | relative_url }}">Talks</a> page.</p>
+    {%- endcase %}
   </section>
   {%- endfor %}
 </div>

@@ -4,7 +4,8 @@ layout: default
 {% include page-banner.html title=page.title subtitle="Conference presentations and invited seminars" %}
 
 <div class="wrap narrow content">
-  {%- assign years = site.data.talks.talks | group_by: "year" | sort: "name" | reverse -%}
+  {%- assign visible = site.data.talks.talks | where_exp: "t", "t.hide_from_website != true" -%}
+  {%- assign years = visible | group_by: "year" | sort: "name" | reverse -%}
   {%- for y in years %}
   <section class="talk-year">
     <h2>{{ y.name }}</h2>

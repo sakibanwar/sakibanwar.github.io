@@ -5,14 +5,15 @@ layout: default
 {% include page-banner.html title=page.title tags=t.interests tags_label="Teaching interests" %}
 
 <div class="wrap narrow content">
-  {%- if t.textbooks and t.textbooks.size > 0 %}
+  {%- assign books = t.textbooks | where_exp: "b", "b.hide_from_website != true" %}
+  {%- if books.size > 0 %}
   <section>
     <h2>Open-Access Textbooks</h2>
     {%- if t.textbooks_intro and t.textbooks_intro != "" %}
     <p>{{ t.textbooks_intro }}</p>
     {%- endif %}
     <ul class="book-list">
-      {%- for book in t.textbooks %}
+      {%- for book in books %}
       <li class="book">
         <h3>{% if book.url and book.url != "" %}<a href="{% include url.html u=book.url %}">{{ book.title }}</a>{% else %}{{ book.title }}{% endif %}</h3>
         {%- if book.description and book.description != "" %}
@@ -24,22 +25,36 @@ layout: default
   </section>
   {%- endif %}
 
-  {%- for group in t.groups %}
+  {%- for place in t.places %}
+  {%- unless place.hide_from_website %}
   <section>
-    <h2>{{ group.title }}</h2>
+    <h2>{{ place.name }}</h2>
+    {%- for group in place.groups %}
+    {%- assign modules = group.modules | where_exp: "m", "m.hide_from_website != true" %}
+    {%- if group.title and group.title != "" %}
+    <h3 class="group-title">{{ group.title }}</h3>
+    {%- endif %}
     <ul class="course-list">
-      {%- for course in group.courses %}
+      {%- for m in modules %}
       <li>
-        <span class="course-name">{{ course.name }}</span>
-        {%- if course.details and course.details != "" %}
-        <span class="course-details">{{ course.details }}</span>
+        <span class="course-name">{{ m.name }}</span>
+        {%- capture details -%}
+          {{ m.level }}{% if m.level and m.level != "" and m.dates and m.dates != "" %} &middot; {% endif %}{{ m.dates }}
+        {%- endcapture -%}
+        {%- if details != "" %}
+        <span class="course-details">{{ details }}</span>
         {%- endif %}
-        {%- if course.link_url and course.link_url != "" %}
-        <a class="pill" href="{% include url.html u=course.link_url %}">{{ course.link_label | default: "Materials" }}</a>
+        {%- if m.tools and m.tools != "" %}
+        <span class="course-tools">{{ m.tools }}</span>
+        {%- endif %}
+        {%- if m.link_url and m.link_url != "" %}
+        <a class="pill" href="{% include url.html u=m.link_url %}">{{ m.link_label | default: "Materials" }}</a>
         {%- endif %}
       </li>
       {%- endfor %}
     </ul>
+    {%- endfor %}
   </section>
+  {%- endunless %}
   {%- endfor %}
 </div>

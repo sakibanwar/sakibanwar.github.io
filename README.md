@@ -1,101 +1,96 @@
 # sakibanwar.github.io
 
-Personal academic website of Sakib Anwar. Built with Jekyll and hosted free on GitHub Pages.
-Every time a change is saved to this repository, GitHub rebuilds the site automatically
-(it takes about a minute).
+Personal academic website **and PDF CV** of Sakib Anwar, built from one set of data files.
 
-**You never need to edit HTML.** All content lives in a handful of simple text files:
+```
+_data/*.yml  ──►  website (Jekyll)        https://sakibanwar.github.io
+     │
+     └──────────►  PDF CV (LaTeX)          /assets/cv/Sakib_Anwar_CV.pdf
+```
 
-| What you want to change | File |
-|---|---|
-| Papers (add, edit, change status, abstracts, links) | `_data/research.yml` |
-| Co-author websites | `_data/people.yml` |
-| Home page bio | `index.md` |
-| Name, photo, CV link, email, social links, address | `_data/profile.yml` |
-| Teaching | `_data/teaching.yml` |
-| Talks | `_data/talks.yml` |
-| CV page | `_data/cv.yml` |
+Edit something once (a paper's status, a new talk, a new grant) and both the website and the
+PDF CV update. Every change to this repository runs `.github/workflows/build.yml`, which
+builds the PDF, builds the site with the PDF inside it, and publishes both together. It takes
+about 3 minutes. If anything fails, the live site stays as it was and GitHub emails you.
+
+**You never need to edit HTML or LaTeX.**
+
+| What | File | Website | PDF CV |
+|---|---|---|---|
+| Papers | `_data/research.yml` | Research page | Research Papers |
+| Talks and seminars | `_data/talks.yml` | Talks page | Seminars and Conference Presentations |
+| Teaching | `_data/teaching.yml` | Teaching page, CV page | Teaching |
+| Employment, education, grants, admin… | `_data/cv.yml` | CV page | (same sections) |
+| Name, contact details, links | `_data/profile.yml` | Home page | Header |
+| Home page bio | `index.md` | Home page | – |
+| Co-author websites | `_data/people.yml` | Research page | – |
+
+### Website only / PDF only
+
+Anything can be kept off one of the two:
+
+- `hide_from_website: true` puts it in the PDF only (e.g. Supervision, Personal)
+- `hide_from_cv: true` puts it on the website only (e.g. old awards, poster talks)
+
+This works on whole CV sections and on single papers, talks, modules, grants and links.
+A few fields are naturally one-sided: abstracts are website only; journal rankings and
+the personal email are PDF only.
 
 ---
 
-## Option 1: edit with forms (recommended)
+## Editing with forms (recommended)
 
-[Pages CMS](https://pagescms.org) is a free editor that gives you proper forms
-(dropdowns, text boxes, upload buttons) for this repository. It is already configured
-(see `.pages.yml`).
-
-**One-time setup**
+[Pages CMS](https://pagescms.org) gives you forms for these files (configured in `.pages.yml`).
 
 1. Go to <https://app.pagescms.org> and sign in with GitHub.
-2. When asked, install the Pages CMS GitHub app and give it access to the
-   `sakibanwar.github.io` repository.
-3. Open the repository. You will see a menu: *Research & papers*, *Co-authors*,
-   *Home page bio*, *Profile & contact*, *Teaching*, *Talks*, *CV page*.
+2. Install the Pages CMS GitHub app. Choose **Only select repositories** and pick
+   `sakibanwar.github.io`.
+3. Open the repository. The menu has *Research & papers, Talks & seminars, Teaching, CV
+   sections, Profile & contact, Home page bio, Co-author websites*.
 
-**Day to day**
+Examples:
 
-- **Add a paper:** *Research & papers* → *Add an entry* under Papers → fill in the title,
-  choose a status, add co-authors and buttons → **Save**.
-- **A working paper got accepted:** open it, change *Status* to *Published*, fill in
-  *Journal* and *Volume, pages, year*, clear the *Status note* → **Save**.
-- **R&R / under review:** just change the *Status note*, e.g.
-  `Revise and Resubmit at *Games and Economic Behavior*`.
-- **Reorder papers:** drag them in the list. The page shows them in the same order.
-- **Upload a PDF** (paper or CV): use the PDF upload field. Files are stored in
-  `assets/uploads/`.
+- **Paper accepted:** *Research & papers* → open it → Status: *Published*, fill in Journal
+  and "Volume, pages, year", clear the note → **Save**.
+- **New R&R:** change the note to `**Revise and Resubmit** at ***Journal Name***` → **Save**.
+- **New talk:** *Talks & seminars* → add an entry → drag it to the top → **Save**.
+- **New grant:** *CV sections* → Grants and Awards → add an entry → **Save**.
 
-Each **Save** is a commit to GitHub; the live site updates about a minute later.
+## Editing on github.com
 
-## Option 2: edit directly on GitHub
+Open a file (e.g. `_data/research.yml`), click the pencil icon, edit, **Commit changes**.
+Copy an existing entry to add a new one and keep the indentation exactly the same (spaces,
+not tabs). Put text in "quotes" if it contains a colon followed by a space.
 
-Open a file on github.com (e.g. `_data/research.yml`), click the pencil icon, edit, and
-click **Commit changes**. To add a paper, copy an existing one and change the text:
+## Previewing on your own computer (optional)
 
-```yaml
-  - title: "My New Paper: An Experiment"
-    status: working            # published, working or progress
-    coauthors:
-      - Konstantinos Georgalos
-    url: ""                    # where the title links to (optional)
-    journal: ""                # for published papers
-    details: ""                # e.g. 27, 820–853 (2024)
-    note: Under review         # *stars* make italics
-    links:
-      - label: arXiv
-        url: https://arxiv.org/abs/xxxx.xxxxx
-    pdf: ""
-    abstract: >-
-      Paste the abstract here, indented like this.
+```bash
+python CV/build_cv.py
 ```
 
-YAML tips: keep the indentation exactly as in the examples (spaces, not tabs), and put a
-title in "quotes" if it contains a colon. If a change breaks the build, GitHub emails you
-and the site simply keeps showing the previous version until it's fixed.
-
-## Option 3: preview on your own computer (optional)
-
-Needs Ruby. From this folder:
+writes `CV/build/cv.tex` and, with LaTeX installed, the PDF at `assets/cv/Sakib_Anwar_CV.pdf`.
+The PDF layout lives in `CV/cv_template.tex` (your original CV design).
 
 ```bash
 bundle install
 bundle exec jekyll serve
 ```
 
-Then open <http://localhost:4000>.
+previews the website at <http://localhost:4000>.
 
 ## Using www.sakibanwar.com
 
-The site is published at <https://sakibanwar.github.io>. To move the custom domain
-over from Google Sites:
+The site is published at <https://sakibanwar.github.io>. To move the custom domain over
+from Google Sites:
 
 1. In this repo: **Settings → Pages → Custom domain**, enter `www.sakibanwar.com`, save.
-2. At your domain registrar, point `www` to `sakibanwar.github.io` with a CNAME record,
-   and the bare domain to GitHub's IP addresses (A records `185.199.108.153`,
+2. At your domain registrar, point `www` to `sakibanwar.github.io` with a CNAME record, and
+   the bare domain to GitHub's IP addresses (A records `185.199.108.153`,
    `185.199.109.153`, `185.199.110.153`, `185.199.111.153`).
 3. Once it works, tick **Enforce HTTPS** and change `url:` in `_config.yml` to
    `https://www.sakibanwar.com`.
 
 ## Changing the look
 
-Colours and fonts are at the top of `assets/css/style.css`. The menu order is in
-`_config.yml` under `nav:`.
+Website colours and fonts: top of `assets/css/style.css`. Menu: `nav:` in `_config.yml`.
+PDF layout: `CV/cv_template.tex`.

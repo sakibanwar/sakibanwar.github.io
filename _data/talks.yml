@@ -1,87 +1,94 @@
-# Talks are grouped by year on the page. Put the newest first.
-# "paper" and "note" are optional (note is for things like Poster or Online).
+# Talks feed BOTH the Talks page (grouped by year) and the PDF CV
+# (split into Seminars and Conference Presentations). Put the newest first.
+#
+#   type       seminar or conference
+#   month      full month name, e.g. November (the CV shortens it to Nov)
+#   paper / note   website only (note is for things like Poster)
+#   hide_from_cv / hide_from_website   set to true to keep a talk off one of them
 talks:
-  - year: 2023
-    event: Newcastle Experimental Economics Workshop
-    location: ""
-    month: November
-    paper: ""
-    note: ""
-  - year: 2023
-    event: European ESA Meeting
-    location: Exeter, UK
+  - type: seminar
+    year: 2026
     month: September
-    paper: ""
-    note: ""
-  - year: 2022
-    event: 17th European Meeting on Game Theory (SING17)
-    location: ""
+    event: Research Away Day, Department of Psychology
+    location: University of Winchester
+  - type: seminar
+    year: 2025
+    month: June
+    event: Research Away Day, Department of Psychology
+    location: University of Winchester
+  - type: conference
+    year: 2023
+    month: November
+    event: 2023 Newcastle Experimental Economics Workshop
+  - type: conference
+    year: 2023
+    month: September
+    event: 2023 European ESA Meeting
+    location: Exeter (UK)
+  - type: conference
+    year: 2022
     month: July
-    paper: ""
-    note: Online
-  - year: 2019
+    event: 17th European Meeting on Game Theory (SING17)
+    location: online
+  - type: conference
+    year: 2019
+    month: November
     event: Lancaster Game Theory Conference
     location: Lancaster University
-    month: November
-    paper: ""
     note: Poster
-  - year: 2019
-    event: NWSSDTP Conference
-    location: Lancaster University
-    month: ""
-    paper: ""
-    note: ""
-  - year: 2019
-    event: 6th Shadow Economy Conference
-    location: Trento
+    hide_from_cv: true
+  - type: conference
+    year: 2019
     month: July
+    event: 6th Shadow Economy Conference
+    location: University of Trento
     paper: Tax Evasion and Economic Inequality
-    note: ""
-  - year: 2018
-    event: The Lisbon Meetings in Game Theory and Applications
-    location: Portugal
-    month: October
-    paper: ""
-    note: ""
-  - year: 2018
-    event: 1st Lancaster PhD Summer School on Applied Microeconomics (Political Economy)
-    location: ""
-    month: September
-    paper: ""
-    note: Poster
-  - year: 2018
-    event: 9th York Symposium on Game Theory
-    location: University of York
-    month: June
-    paper: ""
-    note: ""
-  - year: 2018
-    event: School of Mathematical Sciences
-    location: University of Southampton
-    month: February
-    paper: ""
-    note: ""
-  - year: 2018
+  - type: conference
+    year: 2019
+    month: May
+    event: NWSSDTP PhD Conference
+    location: Lancaster University
+  - type: seminar
+    year: 2018
+    month: December
     event: Economics PhD Seminar Series
     location: Lancaster University
-    month: February
-    paper: ""
-    note: ""
-  - year: 2017
-    event: Lancaster Game Theory Conference
+  - type: conference
+    year: 2018
+    month: October
+    event: Lisbon Meetings in Game Theory and Applications
+  - type: conference
+    year: 2018
+    month: September
+    event: PhD Summer School on Applied Microeconomics
     location: Lancaster University
-    month: November
-    paper: ""
     note: Poster
-  - year: 2017
+  - type: conference
+    year: 2018
+    month: June
+    event: 9th York Symposium on Game Theory
+  - type: seminar
+    year: 2018
+    month: February
+    event: School of Mathematical Sciences
+    location: University of Southampton
+  - type: seminar
+    year: 2018
+    month: February
+    event: Economics PhD Seminar Series
+    location: Lancaster University
+  - type: conference
+    year: 2017
+    month: November
+    event: Lancaster Game Theory Conference
+    note: Poster
+  - type: conference
+    year: 2017
+    month: July
     event: PhD Summer School on Psychological Game Theory
     location: University of East Anglia
-    month: July
-    paper: ""
-    note: ""
-  - year: 2017
-    event: 8th York Symposium on Game Theory
-    location: University of York
+  - type: conference
+    year: 2017
     month: June
-    paper: ""
+    event: 8th York Symposium on Game Theory
     note: Poster

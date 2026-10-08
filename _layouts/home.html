@@ -2,7 +2,7 @@
 layout: default
 ---
 {%- assign p = site.data.profile -%}
-{%- if p.cv_pdf and p.cv_pdf != "" -%}{%- assign cv = p.cv_pdf -%}{%- else -%}{%- assign cv = p.cv_url -%}{%- endif -%}
+{%- assign cv = site.cv_pdf -%}
 
 <section class="hero-title">
   <div class="wrap">

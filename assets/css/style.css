@@ -176,11 +176,21 @@ html:not(.js) .pill-toggle { display: none; }
 .course-name { font-weight: 700; color: var(--ink); }
 .course-details { color: var(--muted); font-size: .95rem; }
 .course-list .pill { margin-left: auto; }
+.course-tools, .cv-tag { color: var(--muted); font-size: .82rem; border: 1px solid var(--line); background: var(--soft); border-radius: 4px; padding: 0 7px; }
+.content .group-title { font-size: 1.05rem; font-weight: 700; color: var(--ink); margin: 1.4rem 0 .2rem; }
 
 /* CV */
 .cv-entry { display: flex; justify-content: space-between; gap: 6px 28px; padding: .75rem 0; border-bottom: 1px solid var(--line); }
 .cv-entry:last-child { border-bottom: 0; }
 .cv-title { font-weight: 700; color: var(--ink); }
+.cv-title-plain { font-weight: 400; }
+.cv-extra { font-weight: 400; }
+.cv-lines { margin: 0; }
+.cv-lines > div { padding: .6rem 0; border-bottom: 1px solid var(--line); }
+.cv-lines > div:last-child { border-bottom: 0; }
+.cv-lines dt { font-weight: 700; color: var(--ink); }
+.cv-lines dd { margin: 0; }
+.cv-pointer { color: var(--muted); margin: .6rem 0 0; }
 .cv-org { color: var(--muted); }
 .cv-details { font-size: .96rem; margin-top: .25rem; }
 .cv-details p { margin: 0; }

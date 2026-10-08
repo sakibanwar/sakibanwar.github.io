@@ -1,0 +1,29 @@
+{%- comment -%}
+  A list of CV entries (jobs, degrees, grants...). Used by the CV page.
+  include.entries   the list
+  include.plain     true to show all titles in normal weight
+{%- endcomment -%}
+{%- assign entries = include.entries | where_exp: "e", "e.hide_from_website != true" -%}
+{%- for e in entries %}
+<div class="cv-entry">
+  <div class="cv-main">
+    <div class="cv-title{% if include.plain or e.plain %} cv-title-plain{% endif %}">
+      {%- if e.url and e.url != "" -%}<a href="{% include url.html u=e.url %}">{{ e.title }}</a>{%- else -%}{{ e.title }}{%- endif -%}
+      {%- if e.extra and e.extra != "" %} <span class="cv-extra">{{ e.extra }}</span>{% endif -%}
+      {%- if e.tag and e.tag != "" %} <span class="cv-tag">{{ e.tag }}</span>{% endif -%}
+    </div>
+    {%- if e.organisation and e.organisation != "" %}
+    <div class="cv-org">{{ e.organisation }}</div>
+    {%- endif %}
+    {%- if e.details and e.details != "" %}
+    <div class="cv-details">{{ e.details | strip | newline_to_br | markdownify }}</div>
+    {%- endif %}
+    {%- if e.website_details and e.website_details != "" %}
+    <div class="cv-details">{{ e.website_details | strip | newline_to_br | markdownify }}</div>
+    {%- endif %}
+  </div>
+  {%- if e.date and e.date != "" %}
+  <div class="cv-date">{{ e.date }}</div>
+  {%- endif %}
+</div>
+{%- endfor %}
