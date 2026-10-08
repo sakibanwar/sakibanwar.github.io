@@ -36,14 +36,14 @@ textbooks_intro: >-
 
 textbooks:
   - title: Python for Data Analysis
-    url: https://sakibanwar.github.io/python-notes/intro.html
+    url: https://www.sakibanwar.com/python-notes/intro.html
     cv_note: Jupyter Book (open access)
     description: >-
       Companion text for the Data Analytics and Data Analysis modules, covering Python
       fundamentals, pandas, data visualisation, regression, and dashboard creation with
       Streamlit.
   - title: Python for Statistics
-    url: https://sakibanwar.github.io/python-notes/stats/intro_stats.html
+    url: https://www.sakibanwar.com/python-notes/stats/intro_stats.html
     cv_note: Jupyter Book (open access)
     description: >-
       Companion text for the Quantitative Methods and Statistics module, with expanded
@@ -72,7 +72,7 @@ places:
             tools: Python, Colab, Desmos
             dates: Aug 2025–Present
             link_label: Python Notes
-            link_url: https://sakibanwar.github.io/python-notes/stats/intro_stats.html
+            link_url: https://www.sakibanwar.com/python-notes/stats/intro_stats.html
           - name: Microeconomics Analysis
             level: 2nd Year, year-long
             tools: Desmos
@@ -82,7 +82,7 @@ places:
             tools: Python, Colab
             dates: Aug 2025–Present
             link_label: Python Notes
-            link_url: https://sakibanwar.github.io/python-notes/intro.html
+            link_url: https://www.sakibanwar.com/python-notes/intro.html
           - name: Econometrics
             level: 2nd Year
             tools: Python
@@ -102,7 +102,7 @@ places:
             tools: Python, Colab, Streamlit
             dates: Jan 2023–Present
             link_label: Python Notes
-            link_url: https://sakibanwar.github.io/python-notes/intro.html
+            link_url: https://www.sakibanwar.com/python-notes/intro.html
       - title: Previous Modules
         modules:
           - name: Behavioural Economics and Finance
