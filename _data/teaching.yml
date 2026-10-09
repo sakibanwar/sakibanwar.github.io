@@ -51,6 +51,7 @@ textbooks:
       study.
 
 # Each place has one or more module lists.
+#   summary    a line under the place name, on the website and in the PDF
 #   note       in brackets after a place name, a list heading or a module's level;
 #              PDF only unless note_on_website: true (list headings and modules)
 #   compact    PDF only: print the modules on one line, "Name (dates), ..."
@@ -60,9 +61,10 @@ textbooks:
 places:
   - name: University of Winchester
     note: Senior Lecturer, Sep 2026–Present; Lecturer, Aug 2021–Aug 2026
+    summary: Module leader for every module below, delivering all lectures and seminars.
     groups:
       - title: Current Modules
-        note: 2026–27, module leader for all eight
+        note: 2026–27
         note_on_website: true
         modules:
           - name: Principles of Economics

@@ -41,6 +41,9 @@ layout: default
     {%- else %}
     <h2>{{ place.name }}</h2>
     {%- endif %}
+    {%- if place.summary and place.summary != "" %}
+    <p class="place-summary">{{ place.summary }}</p>
+    {%- endif %}
     {%- for group in place.groups %}
     {%- assign modules = group.modules | where_exp: "m", "m.hide_from_website != true" %}
     {%- if group.title and group.title != "" %}

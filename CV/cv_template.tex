@@ -201,6 +201,9 @@
 \vspace{4pt}
 ((* for place in teaching.places *))
 \subsection*{((( place.name | tex )))((* if place.note *)) \normalfont\textit{\paren{((( place.note | md )))}}((* endif *))}
+((* if place.summary *))
+((( place.summary | md )))
+((* endif *))
 ((* if place.compact *))
 ((( place | compact_modules )))
 ((* else *))

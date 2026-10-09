@@ -193,6 +193,8 @@ html:not(.js) .pill-toggle { display: none; }
 }
 .content .section-head h2 { margin: 0; padding: 0; border: 0; }
 .content .section-head + .group-title { margin-top: 1.2rem; }
+.content .place-summary { margin: -.3rem 0 0; color: var(--muted); }
+.content .place-summary + .group-title { margin-top: 1.2rem; }
 .legend { display: flex; gap: 6px; margin: 0; }
 
 /* CV */

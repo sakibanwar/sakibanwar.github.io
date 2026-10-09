@@ -241,6 +241,10 @@ content:
             label: Note after the name (PDF CV only)
             description: e.g. Senior Lecturer, Sep 2026–Present; classes of 15–30
             type: string
+          - name: summary
+            label: Line under the name (website and PDF CV)
+            description: e.g. Module leader for every module below, delivering all lectures and seminars.
+            type: string
           - name: compact
             label: One-line module list in the CV
             type: boolean
@@ -257,7 +261,7 @@ content:
                 type: string
               - name: note
                 label: Note after the heading
-                description: e.g. 2026–27, module leader for all eight. PDF CV only unless ticked below.
+                description: e.g. 2026–27. PDF CV only unless ticked below.
                 type: string
               - name: note_on_website
                 label: Also show this note on the website
