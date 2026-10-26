@@ -130,8 +130,9 @@ a:hover { color: var(--maroon-dark); text-decoration-thickness: 2px; }
 .banner-sub { margin: .5rem 0 0; opacity: .9; }
 .banner-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
 .btn-inline { display: inline-block; margin: 0; }
-.tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 16px 0 0; padding: 0; }
-.tags li { border: 1px solid rgba(255, 255, 255, .45); border-radius: 999px; padding: 3px 14px; font-size: .9rem; letter-spacing: .02em; }
+.tags { list-style: none; margin: .6rem 0 0; padding: 0; opacity: .9; }
+.tags li { display: inline-block; }
+.tags li:not(:last-child)::after { content: "\00b7"; margin: 0 .3em 0 .55em; }
 
 .content { padding-top: 16px; padding-bottom: 72px; }
 .content h2 {
